@@ -1,0 +1,715 @@
+---
+title: "mtDNA phylo maps"
+author: "Mareike"
+date: "26/05/2021"
+output: html_document
+---
+
+Load required packages
+```{r}
+library(ggplot2)
+library(rgdal)
+library(broom)
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(sf)
+library(ggtext)
+library(viridis)
+```
+
+Import sample data:
+```{r}
+loc <- read.delim("../metadata/location_data_11Oct2021.txt", header = FALSE)
+
+#subset to only samples that have a non-loc_NA_placeholder location
+#loc_known <- subset(loc, loc$V11 != "placeholder")
+loc_known <- subset(loc, loc$V11 != "loc_NA_placeholder")
+loc_known$Longitude <- as.numeric(loc_known$V10)
+loc_known$Latitude <- as.numeric(loc_known$V9)
+```
+
+Read in shapefiles
+```{r}
+rivers_spdf <- readOGR(dsn = "./shape_files/rivers/", layer = "rivers-sa-priority")
+
+jutai_spdf <- readOGR(dsn = "./shape_files/additional_rivers/", layer = "rivers_jutai")
+
+javari_spdf <- readOGR(dsn = "./shape_files/additional_rivers/", layer = "river_javari")
+
+connect_spdf <- readOGR(dsn = "./shape_files/additional_rivers/", layer = "javari_connect")
+```
+
+Get world map
+```{r}
+world <- ne_countries(scale = "medium", returnclass = "sf")
+```
+
+Turn rivers spdf into file that works with ggmap
+```{r}
+rivers_tidy <- tidy(rivers_spdf)
+jutai_tidy <- tidy(jutai_spdf)
+javari_tidy <- tidy(javari_spdf)
+connect_tidy <- tidy(connect_spdf)
+```
+
+Create shape file for Brazil rivers only
+```{r}
+brazil_rivers_spdf <- subset(rivers_spdf, rivers_spdf$COUNTRY1 == "BR")
+brazil_rivers_tidy <- tidy(brazil_rivers_spdf)
+```
+
+
+### Plot all samples
+All samples (with location data in spreadsheet), size of dots based on number of samples from same location:
+```{r}
+south_america <- subset(world, continent == "South America")
+
+p_inset <- ggplot() +
+  geom_sf(data = south_america, fill = "white", size = 0.2) +
+  coord_sf(ylim = c(-55.8917, 12.43437), xlim = c(-83, -31)) +
+  geom_rect(aes(xmin = -76, xmax = -51, ymin = -17, ymax = 4), fill = "gray", color = "steelblue", size = 1.2, alpha = 0) +
+  theme_void()
+
+p_all <- ggplot(data = world) +
+  geom_sf() +
+  geom_rect(aes(xmin = -67, xmax = -61.5, ymin = -1.4, ymax = 2), fill = "gray85", size = 1.2, alpha = 0.3) +
+  geom_rect(aes(xmin = -69.2, xmax = -63.9, ymin = -4.5, ymax = -1.5), fill = "gray85", size = 1.2, alpha = 0.3) +
+  geom_rect(aes(xmin = -65, xmax = -60, ymin = -10, ymax = -7), fill = "gray85", size = 1.2, alpha = 0.3) +
+  geom_path(data = rivers_tidy, aes(x = long, y = lat, group = group), color = "steelblue") +
+  geom_count(data = loc_known, aes(x = Longitude, y = Latitude), pch = 16, col = "#7E03A8FF", alpha = 0.4) +
+  scale_size(range = c(2, 6)) +
+  coord_sf(ylim = c(-17, 4), xlim = c(-76, -51)) +
+  scale_color_viridis_d(name = "Family", direction = -1, option = "C") +
+  xlab("Longitude") +
+  ylab("Latitude") +
+  theme_bw() +
+  theme(legend.position = c(0.95, 0.88),
+        legend.box.background = element_rect(colour = "#595959")); p_all
+```
+
+Add river labels:
+```{r}
+p_all_riverLabels <- p_all + annotate(geom = "text", x = -62.7, y = -3.5, label = "Amazon", col = "steelblue", size = 3, angle = 10) +
+  annotate(geom = "text", x = -62, y = -1.8, label = "Negro", col = "steelblue", size = 3, angle = -26) +
+  annotate(geom = "text", x = -61.2, y = 0.5, label = "Branco", col = "steelblue", size = 3, angle = 70) +
+  annotate(geom = "text", x = -62.2, y = -7, label = "Madeira", col = "steelblue", size = 3, angle = 57) +
+  annotate(geom = "text", x = -65.5, y = -7.15, label = "Purus", col = "steelblue", size = 3, angle = 33) +
+  annotate(geom = "text", x = -66.1, y = -4, label = "Juruá", col = "steelblue", size = 3, angle = 65) +
+  annotate(geom = "text", x = -56.9, y = -5.7, label = "Tapajós", col = "steelblue", size = 3, angle = 49) +
+  annotate(geom = "text", x = -68, y = -1.4, label = "Japurá", col = "steelblue", size = 3, angle = -4) +
+  annotate(geom = "text", x = -70.4, y = -2.8, label = "Putumayo", col = "steelblue", size = 3, angle = -20) +
+  annotate(geom = "text", x = -62.1, y = -12.7, label = "Guaporé", col = "steelblue", size = 3, angle = -25) +
+  annotate(geom = "text", x = -58.8, y = -11, label = "Juruena", col = "steelblue", size = 3, angle = 85) +
+  annotate(geom = "text", x = -56, y = -9.2, label = "Teles Pires", col = "steelblue", size = 3, angle = -30) +
+  annotate(geom = "text", x = -64.5, y = -14.5, label = "Mamoré", col = "steelblue", size = 3, angle = -82) +
+  annotate(geom = "text", x = -54, y = -5.5, label = "Iriri", col = "steelblue", size = 3, angle = -76) +
+annotate(geom = "text", x = -52.8, y = -11, label = "Xingu", col = "steelblue", size = 3, angle = 62); p_all_riverLabels
+```
+
+Add scale bar and north arrow
+```{r}
+p_all_riverLabels_scalebar <- p_all_riverLabels + 
+  ggsn::scalebar(x.min = -76, x.max = -51, y.min = -17, y.max = 4, dist = 250, dist_unit = "km", transform = TRUE, model = 'WGS84', location = "bottomleft", st.size = 3.5) + 
+  ggsn::north(x.min = -76.5, x.max = -51, y.min = -15.5, y.max = 4, location = "bottomleft")
+```
+
+Add continental context as inset
+```{r}
+p_inset_map = cowplot::ggdraw() +
+  cowplot::draw_plot(p_all_riverLabels_scalebar) +
+  cowplot::draw_plot(p_inset, x = -0.08, y = 0.6, width = 0.4, height = 0.4)
+```
+
+```{r}
+ggsave("./plat_mtDNA_sample_map_13Oct2021.pdf", p_inset_map, height = 6, width = 9)
+```
+
+### Focus on individual rivers
+Show detail for key rivers
+#### Rio Negro
+Subset dataframe
+```{r}
+negro_df <- subset(loc_known, loc_known$V4 == "Cheracebus" | loc_known$V4 == "Cacajao" | loc_known$V4 == "Saimiri" | loc_known$V4 == "Alouatta")
+negro_df <- subset(negro_df, negro_df$Latitude > -1.5 & negro_df$Latitude < 2)
+negro_df <- subset(negro_df, negro_df$Longitude > -68 & negro_df$Longitude < -61)
+```
+Plot map
+```{r}
+p_negro <- ggplot(data = world) +
+  geom_sf() +
+  geom_path(data = rivers_tidy, aes(x = long, y = lat, group = group), color = "steelblue") +
+  geom_point(data = negro_df, aes(x = Longitude, y = Latitude, col = V13, shape = V4), position = position_dodge2(width = 0.15), size = 2.5) +
+  coord_sf(ylim = c(-1.5, 2), xlim = c(-66.85, -61.85)) +
+  scale_color_manual(name = "mPTP unit", 
+                     values = viridis(n = 7, option = "C"), 
+                     breaks = c("Species14", "Species25", "Species15", "Species26", "Species34", "Species59", "Species35"), 
+                    labels = c("14", "25", "15", "26", "34", "59", "35")) +
+  scale_shape_manual(name = "Genus", 
+              values = c(16, 17, 15, 7),
+              labels = c("*Alouatta*", "*Cacajao*", "*Cheracebus*", "*Saimiri*")) +
+  xlab("Longitude") +
+  ylab("Latitude") +
+  theme_bw() +
+  guides(shape = guide_legend(order = 1), col = guide_legend(order = 2)) +
+  theme(legend.text = element_markdown(),
+        legend.key.size = unit(0.8, "lines")) +
+  annotate(geom = "text", x = -66, y = -0.15, label = "Negro", col = "steelblue", size = 3, angle = 13) +
+  annotate(geom = "text", x = -61.9, y = 0, label = "Branco", col = "steelblue", size = 3, angle = 83) +
+  ggsn::scalebar(x.min = -66.85, x.max = -61.85, y.min = -1.5, y.max = 2, dist = 30, dist_unit = "km", transform = TRUE, model = 'WGS84', location = "topright", st.size = 2.5, st.dist = 0.03) + 
+  ggsn::north(x.min = -66.85, x.max = -61.7, y.min = -1.5, y.max = 1.75, location = "topright", scale = 0.15); p_negro
+```
+
+#### Upper Amazon
+Subset dataframe
+```{r}
+amazon_df <- subset(loc_known, loc_known$V4 == "Cheracebus" | loc_known$V4 == "Cacajao" | loc_known$V4 == "Alouatta")
+amazon_df <- subset(amazon_df, amazon_df$Latitude > -5 & amazon_df$Latitude < -1.75)
+amazon_df <- subset(amazon_df, amazon_df$Longitude > -70 & amazon_df$Longitude < -64)
+```
+Plot
+```{r}
+p_amazon <- ggplot(data = world) +
+  geom_sf() +
+  geom_path(data = rivers_tidy, aes(x = long, y = lat, group = group), color = "steelblue") +
+  geom_path(data = jutai_tidy, aes(x = long, y = lat, group = group), color = "steelblue") +
+  geom_path(data = javari_tidy, aes(x = long, y = lat, group = group), color = "steelblue") +
+  geom_path(data = connect_tidy, aes(x = long, y = lat, group = group), color = "steelblue") +
+  geom_point(data = amazon_df, aes(x = Longitude, y = Latitude, col = V13, shape = V4), position = position_dodge2(width = 0.15), size = 2.5) +
+  coord_sf(ylim = c(-4, -1.5), xlim = c(-69, -64)) +
+  scale_shape(name = "Genus", labels = c("*Alouatta*", "*Cacajao*", "*Cheracebus*")) +
+  scale_color_manual(name = "mPTP unit", values = viridis(n = 5, option = "C"),
+                     breaks = c("Species17", "Species23", "Species18", "Species24", "Species35"), 
+                     labels = c("17", "23", "18", "24", "35")) +
+  xlab("Longitude") +
+  ylab("Latitude") +
+  theme_bw() +
+  guides(shape = guide_legend(order = 1), col = guide_legend(order = 2)) +
+  theme(legend.text = element_markdown(),
+        legend.title = element_text(size = 10),
+        legend.key.size = unit(0.8, "lines")) +
+  annotate(geom = "text", x = -67.8, y = -2.7, label = "Amazon", col = "steelblue", size = 3, angle = 25) +
+  annotate(geom = "text", x = -68.8, y = -2.8, label = "Putumayo", col = "steelblue", size = 3) +
+  annotate(geom = "text", x = -68, y = -1.56, label = "Japurá", col = "steelblue", size = 3, angle = 5) +
+  annotate(geom = "text", x = -65.9, y = -3.2, label = "Juruá", col = "steelblue", size = 3, angle = 65) +
+  annotate(geom = "text", x = -67, y = -3, label = "Jutai", col = "steelblue", size = 3, angle = 55) +
+  ggsn::scalebar(x.min = -69, x.max = -64, y.min = -4, y.max = -1.5, dist = 40, dist_unit = "km", transform = TRUE, model = 'WGS84', location = "topright", st.size =2.5, st.dist = 0.04, height = 0.03) + 
+  ggsn::north(x.min = -69, x.max = -63.6, y.min = -4, y.max = -1.75, location = "topright", scale = 0.2); p_amazon
+```
+
+#### Rio Madeira
+Subset dataframe
+```{r}
+madeira_df <- subset(loc_known, loc_known$V4 == "Plecturocebus" | loc_known$V4 == "Saimiri")
+madeira_df <- subset(madeira_df, madeira_df$Latitude > -11 & madeira_df$Latitude < -7)
+madeira_df <- subset(madeira_df, madeira_df$Longitude > -66 & madeira_df$Longitude < -60)
+```
+
+```{r}
+p_madeira <- ggplot(data = world) +
+  geom_sf() +
+  geom_path(data = rivers_tidy, aes(x = long, y = lat, group = group), color = "steelblue") +
+  geom_path(data = jutai_tidy, aes(x = long, y = lat, group = group), color = "steelblue") +
+  geom_path(data = javari_tidy, aes(x = long, y = lat, group = group), color = "steelblue") +
+  geom_path(data = connect_tidy, aes(x = long, y = lat, group = group), color = "steelblue") +
+  geom_point(data = madeira_df, aes(x = Longitude, y = Latitude, col = V13, shape = V4), position = position_dodge2(width = 0.15), size = 2.5) +
+  coord_sf(ylim = c(-9.5, -7.5), xlim = c(-64.5, -60.5)) +
+  scale_shape(name = "Genus", labels = c("*Plecturocebus*", "*Saimiri*")) +
+  scale_color_manual(name = "mPTP unit", values = viridis(n = 7, option = "C"),
+                     breaks = c("Species10",  "Species62", "Species3", "Species66", "Species4", "Species5", "Species7"), 
+                     labels = c("10", "62", "3", "66", "4", "5", "7")) +
+#  scale_color_manual(name = "mPTP unit", values = viridis(n = 4, option = "C"),
+#                     breaks = c("Species2",  "Species3", "Species38", "Species4"), 
+#                     labels = c("2", "3", "38", "4")) +
+  xlab("Longitude") +
+  ylab("Latitude") +
+  theme_bw() +
+  guides(shape = guide_legend(override.aes = list(size = 2), order = 1), col = guide_legend(override.aes = list(size = 2), order = 2)) +
+  theme(legend.text = element_markdown(),
+        legend.title = element_text(size = 10),
+        legend.key.size = unit(0.8, "lines")) +
+  annotate(geom = "text", x = -63, y = -8.3, label = "Madeira", col = "steelblue", size = 3, angle = 40) +
+#  annotate(geom = "text", x = -64.55, y = -7.25, label = "Purus", col = "steelblue", size = 3, angle = 45) +
+  ggsn::scalebar(x.min = -64.6, x.max = -60.4, y.min = -9.5, y.max = -7.5, dist = 30, dist_unit = "km", transform = TRUE, model = 'WGS84', anchor = c(x = -60.5, y =-9.35), st.size = 2.5, st.dist = 0.04, height = 0.035) + 
+  ggsn::north(x.min = -64.6, x.max = -60.15, y.min = -9.15, y.max = -7.5, location = "bottomright", scale = 0.25); p_madeira
+```
+
+```{r}
+p_riosCombo <- ggpubr::ggarrange(ggpubr::ggarrange(p_nodeAges, p_negro, nrow = 1, labels = c("", "(E)"), widths = c(1,1.5)), ggpubr::ggarrange(p_amazon, p_madeira, nrow = 1, labels = c("(D)", "(F)"), align = "h"), nrow = 2, heights = c(1,0.8), align = "v")
+
+ggsave("./Rios_detail_maps_nodeAges.pdf", p_riosCombo, height = 6.5, width = 11.5)
+```
+
+
+### Phylo Maps for subclades 
+
+Load packages
+```{r}
+library(phytools)
+library(viridis)
+library(mapdata)
+library(viridis)
+library(ape)
+```
+
+Read in beast tree
+```{r}
+beast_tr <- treeio::read.beast("./mtDNA.chain1chain2.combo.MCC.tree")
+tr <- beast_tr@phylo
+```
+
+Read in location data (if not already loaded): (rownames should be the same as tree tips)
+```{r}
+loc <- read.delim("../metadata/location_data_11Oct2021.txt", header = FALSE)
+
+coord <- as.matrix(loc[9:10])
+rownames(coord)<-as.vector(loc$V12)
+```
+
+Plot all (too many):
+```{r}
+phylo.to.map(tr, coord, rotate=TRUE, ylim=c(-15,15), xlim=c(-90,-50), direction="rightwards")
+```
+
+#### Alouatta only:
+```{r}
+Alouatta <- subset(loc, loc$V4 == "Alouatta")
+Alouatta <- subset(Alouatta, Alouatta$V11 != "loc_NA_placeholder")
+Alouatta <- subset(Alouatta, Alouatta$V11 != "placeholder")
+coord_Alouatta <- as.matrix(Alouatta[9:10])
+rownames(coord_Alouatta)<- as.vector(Alouatta$V12)
+```
+
+Drop tips:
+```{r}
+tr_Alouatta <- keep.tip(tr, Alouatta$V12)
+tr_Alouatta <- drop.tip(tr_Alouatta, c("PD_0175.1", "KY202428.1_Alouatta_guariba","NC_027825.1_Alouatta_seniculus", "NC_021938.1_Alouatta_caraya"))
+```
+
+Set colors based on mPTP species assignment
+```{r}
+y = viridis(n=length(unique(Alouatta$V13)), option = "plasma")
+x.lvl <- unique(Alouatta$V13)
+cols<-setNames(y[match(Alouatta$V13, x.lvl)], Alouatta$V12)
+```
+
+Plot Alouatta tree
+```{r}
+obj <- phylo.to.map(tr_Alouatta, coord_Alouatta,
+                    database = "worldHires", regions = "Brazil", 
+                    plot = FALSE, direction = "rightwards")
+plot(obj, direction = "rightwards",
+     ylim=c(-15,3), 
+     xlim=c(-74,-52),
+     ftype = "off",
+     asp=1,
+     pts = FALSE, 
+     colors = cols, 
+     cex.points=c(0,1), 
+     lwd=c(1.5,1))
+plot(brazil_rivers_spdf, add=TRUE, col = "steelblue")
+text(x = -90.5, y = 5, labels = "(A) Alouatta", font = 4, col = "black", cex = 1.5, pos = 4)
+nodelabels(round(castor::get_tree_span(tr_Alouatta)$max_distance, digits = 2), 
+           node = 37,
+           frame = "none", 
+           adj = -0.3)
+#plot(javari_connect_spdf, col = "blue", add = TRUE)
+#plot(javari_spdf, col = "blue", add = TRUE)
+#plot(jutai_spdf, col = "blue", add = TRUE)
+#map("rivers", add=TRUE, col = "blue")
+```
+
+#### Saimiri only:
+```{r}
+Saimiri <- subset(loc, loc$V4 == "Saimiri")
+Saimiri <- subset(Saimiri, Saimiri$V11 != "loc_NA_placeholder")
+coord_Saimiri <- as.matrix(Saimiri[9:10])
+rownames(coord_Saimiri)<- as.vector(Saimiri$V12)
+```
+
+Drop tips:
+```{r}
+tr_Saimiri <- keep.tip(tr, Saimiri$V12)
+tr_Saimiri <- drop.tip(tr_Saimiri, c("NC_012775.1_Saimiri_sciureus", "NC_021966.1_Saimiri_boliviensis"))
+```
+
+Set colors based on mPTP species assignment
+```{r}
+y = viridis(n=length(unique(Saimiri$V13)), option = "plasma")
+x.lvl <- unique(Saimiri$V13)
+cols<-setNames(y[match(Saimiri$V13, x.lvl)], Saimiri$V12)
+```
+
+Plot Saimiri tree
+```{r}
+obj <- phylo.to.map(tr_Saimiri, coord_Saimiri, 
+                    database = "worldHires", regions = "Brazil", 
+                    plot = FALSE, direction = "rightwards")
+plot(obj, direction = "rightwards",
+     ylim=c(-15,3), 
+     xlim=c(-74,-52), 
+ #    ftype = "off",
+     asp=1,
+     pts = FALSE, 
+     colors = cols, 
+     cex.points=c(0,1), 
+     lwd=c(1.5,1))
+plot(brazil_rivers_spdf, add=TRUE, col = "steelblue")
+text(x = -90.5, y = 5, labels = "(B) Saimiri", font = 4, col = "black", cex = 1.5, pos = 4)
+nodelabels(round(castor::get_tree_span(tr_Saimiri)$max_distance, digits = 2), 
+           node = 26,
+           frame = "none", 
+           adj = -0.3)
+nodelabels(pch = 23, node = c(38,28), cex = 2)
+```
+
+#### Cebinae only:
+```{r}
+Cebinae <- subset(loc, loc$V4 == "Cebus" | loc$V4 == "Sapajus")
+Cebinae <- subset(Cebinae, Cebinae$V11 != "loc_NA_placeholder")
+coord_Cebinae <- as.matrix(Cebinae[9:10])
+rownames(coord_Cebinae)<- as.vector(Cebinae$V12)
+```
+
+Drop tips:
+```{r}
+tr_Cebinae <- keep.tip(tr, Cebinae$V12)
+tr_Cebinae <- drop.tip(tr_Cebinae, c("NC_050883.1_Sapajus_flavius", "NC_021961.1_Cebus_xanthosternos", "NC_002763.1_Cebus_albifrons", "PD_0077.1"))
+```
+
+Set colors based on mPTP species assignment
+```{r}
+y = viridis(n=length(unique(Cebinae$V13)), option = "plasma", end = 0.85)
+x.lvl <- unique(Cebinae$V13)
+cols<-setNames(y[match(Cebinae$V13, x.lvl)], Cebinae$V12)
+```
+
+Plot Cebinae tree
+```{r}
+obj <- phylo.to.map(tr_Cebinae, coord_Cebinae, 
+                    database = "worldHires", regions = "Brazil", 
+                    plot = FALSE, direction = "rightwards")
+plot(obj, direction = "rightwards",
+     ylim=c(-15,3), 
+     xlim=c(-74,-52), 
+     ftype = "off",
+     asp=1,
+     pts = FALSE, 
+     colors = cols, 
+     cex.points=c(0,1), 
+     lwd=c(1.5,1))
+plot(brazil_rivers_spdf, add=TRUE, col = "steelblue")
+text(x = -90.5, y = 5, labels = "(C) Cebinae", font = 2, col = "black", cex = 1.5, pos = 4)
+nodelabels(round(castor::get_tree_span(tr_Cebinae)$max_distance, digits = 2), 
+           node = 23,
+           frame = "none", 
+           adj = -0.3)
+nodelabels(pch = 22, node = 38, cex = 2)
+nodelabels(pch = 23, node = 40, cex = 2)
+```
+
+#### Cheracebus only:
+```{r}
+Cheracebus <- subset(loc, loc$V4 == "Cheracebus")
+coord_Cheracebus <- as.matrix(Cheracebus[9:10])
+rownames(coord_Cheracebus)<- as.vector(Cheracebus$V12)
+```
+
+Drop tips:
+```{r}
+tr_Cheracebus <- keep.tip(tr, Cheracebus$V12)
+```
+
+Set colors based on mPTP species assignment
+```{r}
+y = viridis(n=length(unique(Cheracebus$V13)), option = "plasma")
+x.lvl <- unique(Cheracebus$V13)
+cols<-setNames(y[match(Cheracebus$V13, x.lvl)], Cheracebus$V12)
+```
+
+Plot Cheracebus tree
+```{r}
+obj <- phylo.to.map(tr_Cheracebus, coord_Cheracebus, 
+                    database = "worldHires", regions = "Brazil", 
+                    plot = FALSE, direction = "rightwards")
+plot(obj, direction = "rightwards",
+     ylim=c(-15,3), 
+     xlim=c(-74,-52), 
+     ftype = "off",
+     asp=1,
+     pts = FALSE, 
+     colors = cols, 
+     cex.points=c(0,1), 
+     lwd=c(1.5,1))
+plot(brazil_rivers_spdf, add=TRUE, col = "steelblue")
+text(x = -90.5, y = 5, labels = "(D) Cheracebus", font = 4, col = "black", cex = 1.5, pos = 4)
+nodelabels(round(castor::get_tree_span(tr_Cheracebus)$max_distance, digits = 2), 
+           node = 16,
+           frame = "none", 
+           adj = -0.3)
+nodelabels(pch = 22, node = 24, cex = 2)
+nodelabels(pch = 23, node = 17, cex = 2)
+```
+
+#### Plecturocebus only:
+```{r}
+Plecturocebus <- subset(loc, loc$V4 == "Plecturocebus")
+coord_Plecturocebus <- as.matrix(Plecturocebus[9:10])
+rownames(coord_Plecturocebus)<- as.vector(Plecturocebus$V12)
+```
+
+Drop tips:
+```{r}
+tr_Plecturocebus <- keep.tip(tr, Plecturocebus$V12)
+```
+
+Set colors based on mPTP species assignment
+```{r}
+y = viridis(n=length(unique(Plecturocebus$V13)), option = "plasma")
+x.lvl <- unique(Plecturocebus$V13)
+cols<-setNames(y[match(Plecturocebus$V13, x.lvl)], Plecturocebus$V12)
+```
+
+Plot Plecturocebus tree
+```{r}
+obj <- phylo.to.map(tr_Plecturocebus, coord_Plecturocebus, 
+                    database = "worldHires", regions = "Brazil", 
+                    plot = FALSE, direction = "downwards")
+plot(obj, direction = "rightwards",
+     ylim=c(-15,3), 
+     xlim=c(-74,-52), 
+#     ftype = "off",
+     asp=1,
+     pts = FALSE, 
+     colors = cols, 
+     cex.points=c(0,1), 
+     lwd=c(1.5,1))
+plot(brazil_rivers_spdf, add=TRUE, col = "steelblue")
+text(x = -90.5, y = 5, labels = "(E) Plecturocebus", font = 4, col = "black", cex = 1.5, pos = 4)
+nodelabels(round(castor::get_tree_span(tr_Plecturocebus)$max_distance, digits = 2), 
+           node = 23,
+           frame = "none", 
+           adj = -0.3)
+nodelabels(pch = 24, node = 33, cex = 2)
+```
+
+#### Cacajao only:
+```{r}
+Cacajao <- subset(loc, loc$V4 == "Cacajao")
+Cacajao <- subset(Cacajao, Cacajao$V11 != "loc_NA_placeholder")
+coord_Cacajao <- as.matrix(Cacajao[9:10])
+rownames(coord_Cacajao)<- as.vector(Cacajao$V12)
+```
+
+Drop tips:
+```{r}
+tr_Cacajao <- keep.tip(tr, Cacajao$V12)
+tr_Cacajao <- drop.tip(tr_Cacajao, "NC_021967.1_Cacajao_calvus", "PD_0306.1")
+```
+
+Set colors based on mPTP species assignment
+```{r}
+y = viridis(n=length(unique(Cacajao$V13)), option = "plasma")
+x.lvl <- unique(Cacajao$V13)
+cols<-setNames(y[match(Cacajao$V13, x.lvl)], Cacajao$V12)
+```
+
+Plot Cacajao tree
+```{r}
+obj <- phylo.to.map(tr_Cacajao, coord_Cacajao, 
+                    database = "worldHires", regions = "Brazil",
+                    plot = FALSE, direction = "rightwards")
+plot(obj, direction = "rightwards",
+     ylim=c(-15,3), 
+     xlim=c(-74,-52), 
+     ftype = "off",
+     asp=1,
+     pts = FALSE, 
+     colors = cols, 
+     cex.points=c(0,1), 
+     lwd=c(1.5,1))
+plot(brazil_rivers_spdf, add=TRUE, col = "steelblue")
+text(x = -90.5, y = 5, labels = "(F) Cacajao", font = 4, col = "black", cex = 1.5, pos = 4)
+nodelabels(round(castor::get_tree_span(tr_Cacajao)$max_distance, digits = 2), 
+           node = 26,
+           frame = "none", 
+           adj = -0.3)
+nodelabels(pch = 22, node = 44, cex = 2)
+```
+
+#### Pithecia only:
+```{r}
+Pithecia <- subset(loc, loc$V4 == "Pithecia")
+Pithecia <- subset(Pithecia, Pithecia$V11 != "loc_NA_placeholder")
+coord_Pithecia <- as.matrix(Pithecia[9:10])
+rownames(coord_Pithecia)<- as.vector(Pithecia$V12)
+```
+
+Drop tips:
+```{r}
+tr_Pithecia <- keep.tip(tr, Pithecia$V12)
+tr_Pithecia <- drop.tip(tr_Pithecia, "PD_0345.1")
+```
+
+Set colors based on mPTP species assignment
+```{r}
+y = viridis(n=length(unique(Pithecia$V13)), option = "plasma")
+x.lvl <- unique(Pithecia$V13)
+cols<-setNames(y[match(Pithecia$V13, x.lvl)], Pithecia$V12)
+```
+
+Plot Pithecia tree
+```{r}
+obj <- phylo.to.map(tr_Pithecia, coord_Pithecia, 
+                    database = "worldHires", regions = "Brazil",
+                    plot = FALSE, direction = "rightwards")
+plot(obj, direction = "rightwards",
+     ylim=c(-15,3), 
+     xlim=c(-74,-52), 
+     ftype = "off",
+     asp=1,
+     pts = FALSE, 
+     colors = cols, 
+     cex.points=c(0,1), 
+     lwd=c(1.5,1))
+plot(brazil_rivers_spdf, add=TRUE, col = "steelblue")
+text(x = -90.5, y = 5, labels = "(G) Pithecia", font = 4, col = "black", cex = 1.5, pos = 4)
+nodelabels(round(castor::get_tree_span(tr_Pithecia)$max_distance, digits = 2), 
+           node = 10,
+           frame = "none", 
+           adj = -0.3)
+```
+
+#### Ateles only:
+```{r}
+Ateles <- subset(loc, loc$V4 == "Ateles")
+Ateles <- subset(Ateles, Ateles$V11 != "placeholder")
+Ateles <- subset(Ateles, Ateles$V11 != "loc_NA_placeholder")
+coord_Ateles <- as.matrix(Ateles[9:10])
+rownames(coord_Ateles)<- as.vector(Ateles$V12)
+```
+
+Drop tips:
+```{r}
+tr_Ateles <- keep.tip(tr, Ateles$V12)
+tr_Ateles <- drop.tip(tr_Ateles, c("PD_0177.1", "NC_019800.1_Ateles_belzebuth"))
+```
+
+Set colors based on mPTP species assignment
+```{r}
+y = viridis(n=length(unique(Ateles$V13)), option = "plasma")
+x.lvl <- unique(Ateles$V13)
+cols<-setNames(y[match(Ateles$V13, x.lvl)], Ateles$V12)
+```
+
+Plot Ateles tree
+```{r}
+obj <- phylo.to.map(tr_Ateles, coord_Ateles, 
+                    database = "worldHires", regions = "Brazil",
+                    plot = FALSE, direction = "rightwards")
+plot(obj, direction = "rightwards",
+     ylim=c(-15,3), 
+     xlim=c(-74,-52), 
+     ftype = "off",
+     asp=1,
+     pts = FALSE, 
+     colors = cols, 
+     cex.points=c(0,1), 
+     lwd=c(1.5,1))
+plot(brazil_rivers_spdf, add=TRUE, col = "steelblue")
+text(x = -90.5, y = 5, labels = "(H) Ateles", font = 4, col = "black", cex = 1.5, pos = 4)
+nodelabels(round(castor::get_tree_span(tr_Ateles)$max_distance, digits = 2), 
+           node = 16,
+           frame = "none", 
+           adj = -0.3)
+nodelabels(pch = 23, node = 20, cex = 2)
+```
+
+#### Chiropotes only:
+```{r}
+Chiropotes <- subset(loc, loc$V4 == "Chiropotes")
+Chiropotes <- subset(Chiropotes, Chiropotes$V11 != "loc_NA_placeholder")
+coord_Chiropotes <- as.matrix(Chiropotes[9:10])
+rownames(coord_Chiropotes)<- as.vector(Chiropotes$V12)
+```
+
+Drop tips:
+```{r}
+tr_Chiropotes <- keep.tip(tr, Chiropotes$V12)
+tr_Chiropotes <- drop.tip(tr_Chiropotes, c("NC_024629.1_Chiropotes_israelita", "NC_021946.1_Chiropotes_albinasus"))
+```
+
+Set colors based on mPTP species assignment
+```{r}
+y = viridis(n=length(unique(Chiropotes$V13)), option = "plasma")
+x.lvl <- unique(Chiropotes$V13)
+cols<-setNames(y[match(Chiropotes$V13, x.lvl)], Chiropotes$V12)
+```
+
+Plot Chiropotes tree
+```{r}
+obj <- phylo.to.map(tr_Chiropotes, coord_Chiropotes, 
+                    database = "worldHires", regions = "Brazil",
+                    plot = FALSE, direction = "rightwards")
+plot(obj, direction = "rightwards",
+     ylim=c(-15,3), 
+     xlim=c(-74,-52), 
+#     ftype = "off",
+     asp=1,
+     pts = FALSE, 
+     colors = cols, 
+     cex.points=c(0,1), 
+     lwd=c(1.5,1))
+plot(brazil_rivers_spdf, add=TRUE, col = "steelblue")
+text(x = -90.5, y = 5, labels = "(I) Chiropotes", font = 4, col = "black", cex = 1.5, pos = 4)
+nodelabels(round(castor::get_tree_span(tr_Chiropotes)$max_distance, digits = 2), 
+           node = 13,
+           frame = "none", 
+           adj = -0.3)
+nodelabels(pch = 23, node = 13, cex = 2)
+```
+
+
+#### Callitrichidae only:
+```{r}
+Callitrichidae <- subset(loc, loc$V4 == "Saguinus" | loc$V4 == "Callithrix" | loc$V4 == "Cebuella" | loc$V4 == "Mico" | loc$V4 == "Leontocebus" | loc$V4 == "Callibela")
+Callitrichidae <- subset(Callitrichidae, Callitrichidae$V11 != "loc_NA_placeholder")
+coord_Callitrichidae <- as.matrix(Callitrichidae[9:10])
+rownames(coord_Callitrichidae)<- as.vector(Callitrichidae$V12)
+```
+
+Drop tips:
+```{r}
+tr_Callitrichidae <- keep.tip(tr, Callitrichidae$V12)
+tr_Callitrichidae <- drop.tip(tr_Callitrichidae, c("NC_021941.1_Callithrix_geoffroyi",
+"NC_021942.1_Callithrix_pygmaea", "NC_025586.1_Callithrix_jacchus", "NC_027658.1_Callithrix_kuhlii", "NC_030788.1_Callithrix_penicillata_isolate_cpe001","NC_050682.1_Callithrix_aurita"))
+```
+
+Set colors based on mPTP species assignment
+```{r}
+y = viridis(n=length(unique(Callitrichidae$V13)), option = "plasma")
+x.lvl <- unique(Callitrichidae$V13)
+cols<-setNames(y[match(Callitrichidae$V13, x.lvl)], Callitrichidae$V12)
+```
+
+Plot Callitrichidae tree
+```{r}
+obj <- phylo.to.map(tr_Callitrichidae, coord_Callitrichidae, 
+                    database = "worldHires", regions = "Brazil",
+                    plot = FALSE, direction = "rightwards")
+plot(obj, direction = "rightwards",
+     ylim=c(-15,3), 
+     xlim=c(-74,-52), 
+ #    ftype = "off",
+     asp=1,
+     pts = FALSE, 
+     colors = cols, 
+     cex.points=c(0,1), 
+     lwd=c(1.5,1))
+plot(brazil_rivers_spdf, add=TRUE, col = "steelblue")
+text(x = -90.5, y = 5, labels = "(J) Callitrichidae", font = 2, col = "black", cex = 1.5, pos = 4)
+nodelabels(round(castor::get_tree_span(tr_Callitrichidae)$max_distance, digits = 2), 
+           node = 17,
+           frame = "none", 
+           adj = -0.3)
+nodelabels(pch = 23, node = c(25, 30, 22), cex = 2)
+```

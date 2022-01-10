@@ -1,0 +1,250 @@
+PGDP_ID	ProviderID	ProviderID2	Genus	Species	Subspecies	QC	ReferenceSpecies	ReferenceID
+AC_t1	Torosin	AcarTorosin	Alouatta	caraya				
+PD_0177	Ageo_Melin	AgeoMelin	Ateles	geoffroyi				
+AGC_m1	Torosin	AguaTorosin	Alouatta	guariba	clamitans			
+PD_0175	Apal_Melin	ApalMelin	Alouatta	palliata				
+KY202428.1	GenBank	KY202428.1	Alouatta	guariba	clamitans			
+NC_001643.1	GenBank	NC_001643.1	Pan	troglodytes				
+NC_002763.1	GenBank	NC_002763.1	Cebus	albifrons				
+NC_004025.1	GenBank	NC_004025.1	Lemur	catta				
+NC_006901.1	GenBank	NC_006901.1	Colobus	guereza				
+NC_012774.1	GenBank	NC_012774.1	Carlito	syrichta				
+NC_012775.1	GenBank	NC_012775.1	Saimiri	sciureus				
+NC_018096.1	GenBank	NC_018096.1	Saimiri	boliviensis	boliviensis			
+NC_018115.1	GenBank	NC_018115.1	Aotus	azarai	azarai			
+NC_018116.1	GenBank	NC_018116.1	Aotus	nancymaae				
+NC_018753.1	GenBank	NC_018753.1	Nomascus	gabriellae				
+NC_019799.1	GenBank	NC_019799.1	Aotus	lemurinus				
+NC_019800.1	GenBank	NC_019800.1	Ateles	belzebuth				
+NC_019801.1	GenBank	NC_019801.1	Callicebus	donacophilus				
+NC_020008.2	GenBank	NC_020008.2	Papio	kindae				
+NC_021938.1	GenBank	NC_021938.1	Alouatta	caraya				
+NC_021939.1	GenBank	NC_021939.1	Aotus	azarai				
+NC_021941.1	GenBank	NC_021941.1	Callithrix	geoffroyi				
+NC_021942.1	GenBank	NC_021942.1	Callithrix	pygmaea				
+NC_021946.1	GenBank	NC_021946.1	Chiropotes	albinasus				
+NC_021951.1	GenBank	NC_021951.1	Lagothrix	lagotricha				
+NC_021952.1	GenBank	NC_021952.1	Leontopithecus	rosalia				
+NC_021960.1	GenBank	NC_021960.1	Saguinus	oedipus				
+NC_021961.1	GenBank	NC_021961.1	Cebus	xanthosternos				
+NC_021965.1	GenBank	NC_021965.1	Callicebus	cupreus				
+NC_021966.1	GenBank	NC_021966.1	Saimiri	boliviensis				
+NC_021967.1	GenBank	NC_021967.1	Cacajao	calvus				
+NC_023211.1	GenBank	NC_023211.1	Saimiri	oerstedii	citrinellus			
+NC_024628.1	GenBank	NC_024628.1	Callimico	goeldii				
+NC_024629.1	GenBank	NC_024629.1	Chiropotes	israelita				
+NC_024630.1	GenBank	NC_024630.1	Callicebus	lugens				
+NC_025586.1	GenBank	NC_025586.1	Callithrix	jacchus				
+NC_027658.1	GenBank	NC_027658.1	Callithrix	kuhlii				
+NC_027825.1	GenBank	NC_027825.1	Alouatta	seniculus				
+NC_030788.1	GenBank	NC_030788.1	Callithrix	penicillata				
+NC_037878.1	GenBank	NC_037878.1	Leontopithecus	chrysopygus				
+NC_050682.1	GenBank	NC_050682.1	Callithrix	aurita				
+NC_050883.1	GenBank	NC_050883.1	Sapajus	flavius				
+PD_0001	28	JPB108	Cheracebus	lugens			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0002	9	CCM138	Callibela	humilis		FAIL	Callithrix_jacchus	Callithrix_jacchus.fasta
+PD_0003	24	MN68611	Cacajao	hosomi			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0004	25	JPB105	Ateles	belzebuth			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0005	41	JPB129	Alouatta	macconnelli			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0006	42	JPB131	Chiropotes	israelita			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0007	49	JPB142	Cebus	olivaceus			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0008	44	JPB134	Aotus	trivirgatus			Aotus_nancymaae	Aotus_nancymaae.fasta
+PD_0009	65	JPB85	Saguinus	inustus		FAIL	Saguinus_midas	Saguinus_midas.fasta
+PD_0010	150	JT32	Cebuella	niveiventris			Callithrix_jacchus	Callithrix_jacchus.fasta
+PD_0011	172	FES27	Sapajus	macrocephalus			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0012	190	FES22	Saimiri	ustus			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0013	202	JAP738	Cebus	unicolor			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0014	450	JT037	Plecturocebus	cupreus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0015	471	FES57	Pithecia	vanzolinii			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0016	486	FES94	Lagothrix	lagotricha			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0017	512	FES50	Leontocebus	nigricollis			Saguinus_midas	Saguinus_midas.fasta
+PD_0018	3	CCM017	Cacajao	melanocephalus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0019	47	INPA5247	Cacajao	ayresi			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0020	119	Masto283	Cacajao	calvus	calvus		Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0021	158	JT063	Cacajao	calvus	rubicundus		Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0022	261	CTGAM05667	Cacajao	ayresi			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0023	481	FES67	Cacajao	calvus	novaesi		Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0024	511	FES102	Cacajao	calvus	calvus		Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0025	54	JPB162	Alouatta	seniculus			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0026	101	RVR108	Alouatta	puruensis			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0027	253	TAP315_355	Alouatta	discolor			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0072	433	SMUF101	Alouatta	seniculus			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0073	98	UFRO.M.576	Alouatta	caraya			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0074	114	RVR96	Ateles	chamek			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0075	286	TRO682	Ateles	paniscus			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0076	388	INPA667	Ateles	marginatus			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0077	2	ALQ100	Cebus	unicolor			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0078	17	MNFS1174	Cebus	albifrons			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0079	263	CTGAM5611	Cebus	olivaceus			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0080	10	CCM157?	Saguinus	sp			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0081	287	TRO582	Chiropotes	sagulatus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0082	290	TRO560	Chiropotes	sagulatus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0083	4	CCM103	Pithecia	pissinatti			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0084	15	CCM253	Pithecia	chrysocephala			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0085	174	FES29	Pithecia	hirsuta			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0086	256	TAP214	Pithecia	mittermeieri			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0087	323	PUR204	Pithecia	albicans			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0088	510	FES101	Cacajao	calvus	ucayalii		Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0089	278	TRO504	Alouatta	macconnelli			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0128	29	CTGA5705	Cacajao	melanocephalus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0129	55	JPB163	Cacajao	hosomi			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0130	160	JT062	Cacajao	calvus	rubicundus		Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0131	267	CTGAM05666	Cacajao	ayresi			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0132	479	FES65	Cacajao	calvus	novaesi		Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0133	509	FES100	Cacajao	calvus	ucayalii		Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0134	58	JPB72	Alouatta	seniculus			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0135	269	CTGAM05641	Alouatta	macconnelli			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0136	441	Masto1494	Alouatta	seniculus			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0137	77	UFRO.M.384	Alouatta	puruensis			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0138	37	JPB125	Ateles	belzebuth			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0139	170	JT008	Ateles	chamek			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0140	463	UFRO187	Ateles	chamek			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0141	23	JPB100	Cebus	albifrons			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0142	240	TAP213	Chiropotes	albinasus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0143	212	JAP699	Pithecia	hirsuta			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0144	337	PUR169	Pithecia	pissinatti			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0273	148	MPEG04	Plecturocebus	bernhardi			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0274	70	UFRO.M.327	Plecturocebus	brunneus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0275	14	CCM248	Plecturocebus	caligatus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0276	68	UFRO.M.195	Plecturocebus	cinerascens			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0277	81	UFRO.M.427	Plecturocebus	dubius			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0278	105	RVR22	Plecturocebus	grovesi			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0279	239	TAP234_249	Plecturocebus	hoffmannsi			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0280	127	FES13	Plecturocebus	miltoni			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0281	242	TAP364_434	Mico	argentatus			Callithrix_jacchus	Callithrix_jacchus.fasta
+PD_0282	230	TAP211	Mico	humeralifer			Callithrix_jacchus	Callithrix_jacchus.fasta
+PD_0283	106	RVR40	Mico	spnv			Callithrix_jacchus	Callithrix_jacchus.fasta
+PD_0284	452	JT051	Cheracebus	regulus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0285	329	PUR154	Cheracebus	torquatus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0286	205	JAP759	Aotus	vociferans			Aotus_nancymaae	Aotus_nancymaae.fasta
+PD_0287	154	JT95	Cebuella	niveiventris			Callithrix_jacchus	Callithrix_jacchus.fasta
+PD_0288	181	FES41	Cheracebus	lucifer			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0289	487	FES95	Cacajao	calvus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0290	161	JT022	Cacajao	calvus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0291	490	RS64	Cacajao	calvus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0292	186	FES46	Cacajao	calvus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0294	356	BM52712	Alouatta	belzebul			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0295	358	BM48342	Alouatta	discolor			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0296	250	TAP313_353	Alouatta	nigerrima			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0297	64	JPB83	Alouatta	seniculus			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0298	449	SMUF78	Alouatta	seniculus			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0299	97	UFRO.M.573	Alouatta	caraya			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0300	157	JT010	Ateles	chamek			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0301	461	UFRO575	Ateles	chamek			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0302	462	UFRO479	Ateles	chamek			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0303	465	UFRO566	Ateles	chamek			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0304	309	JAT44	Ateles	paniscus			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0305	494	MPEG13243	Ateles	chamek		FAIL	Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0306	115	JT3	Cacajao	calvus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0307	169	JT085	Cacajao	calvus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0308	171	JT090	Cacajao	calvus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0309	341	JAP720	Cebuella	pygmaea			Callithrix_jacchus	Callithrix_jacchus.fasta
+PD_0310	184	FES44	Cebus	unicolor			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0311	183	FES43	Cebus	unicolor			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0312	220	JAP726	Cheracebus	lucifer			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0313	227	JAP703	Cheracebus	lucifer			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0314	460	AP22	Cheracebus	lucifer			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0315	30	JPB111	Cheracebus	lugens			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0316	32	JPB119	Cheracebus	lugens			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0317	35	JPB123	Cheracebus	lugens			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0318	45	JPB136	Cheracebus	lugens			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0319	52	JPB160	Cheracebus	lugens			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0320	62	JPB81	Cheracebus	lugens			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0321	219	JAP733	Cheracebus	lugens			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0322	456	JT071	Cheracebus	regulus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0323	7	CCM109	Chiropotes	albinasus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0324	10	CCM157?	Chiropotes	albinasus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0325	428	RCA70	Chiropotes	albinasus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0326	34	JPB122	Chiropotes	israelita			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0327	46	JPB137	Chiropotes	israelita			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0328	60	JPB79	Chiropotes	israelita			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0329	274	TRO515	Chiropotes	sagulatus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0330	293	TRO666	Chiropotes	sagulatus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0331	11	CCM161	Pithecia	pissinatti			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0332	79	UFRO.M.413	Plecturocebus	bernhardi			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0333	128	FES14	Plecturocebus	bernhardi			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0334	92	UFRO.M.541	Plecturocebus	brunneus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0335	320	PUR181	Plecturocebus	caligatus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0336	322	PUR182	Plecturocebus	caligatus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0337	131	HGLN5	Plecturocebus	cinerascens			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0338	1	AAM15	Plecturocebus	cupreus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0339	156	SISPUR210	Plecturocebus	cupreus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0340	455	JT068	Plecturocebus	cupreus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0341	457	JT075	Plecturocebus	cupreus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0342	78	UFRO.M.403	Plecturocebus	dubius			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0343	93	UFRO.M.544	Plecturocebus	dubius			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0344	252	TAP351420	Plecturocebus	moloch			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0345	249	TAP295_334?	Pithecia	sp			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0346	352	JPB165	Saguinus	bicolor			Saguinus_midas	Saguinus_midas.fasta
+PD_0347	325	PUR186	Leontocebus	fuscicolis	weddelli		Saguinus_midas	Saguinus_midas.fasta
+PD_0348	334	PUR167	Saguinus	labiatus	rufiventer		Saguinus_midas	Saguinus_midas.fasta
+PD_0349	280	TRO671	Saguinus	midas			Saguinus_midas	Saguinus_midas.fasta
+PD_0350	313	JAT39	Saguinus	midas			Saguinus_midas	Saguinus_midas.fasta
+PD_0351	333	PUR163	Saguinus	mystax			Saguinus_midas	Saguinus_midas.fasta
+PD_0352	214	JAP719	Leontocebus	fuscicollis			Saguinus_midas	Saguinus_midas.fasta
+PD_0353	57	JPB71	Saimiri	cassiquiarensis			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0354	63	JPB82	Saimiri	cassiquiarensis			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0355	210	JAP760	Saimiri	cassiquiarensis			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0356	265	CTGAM5610	Saimiri	cassiquiarensis			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0357	303	SIS113	Saimiri	cassiquiarensis			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0358	316	SIS94	Saimiri	cassiquiarensis			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0359	307	SIS120	Saimiri	cassiquiarensis			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0360	347	JAP761	Saimiri	cassiquiarensis			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0361	350	JAP700	Saimiri	macrodon			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0362	224	JAP698	Saimiri	macrodon			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0363	233	TAP367_437	Saimiri	ustus			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0364	270	TRO588	Saimiri	sciureus		FAIL	Cebus_albifrons	Cebus_albifrons.fasta
+PD_0365	312	JAT20	Saimiri	sciureus		FAIL	Cebus_albifrons	Cebus_albifrons.fasta
+PD_0366	76	UFRO.M.358	Saimiri	ustus			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0367	95	UFRO.M.567	Saimiri	ustus			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0368	71	UFRO.M.328	Saimiri	ustus			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0369	190	FES22	Saimiri	ustus			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0370	321	PUR156	Saimiri	ustus			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0371	72	UFRO.M.329	Saimiri	ustus			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0372	175	FES30	Saimiri	macrodon			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0373	50	JPB143	Saimiri	cassiquiarensis			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0374	82	UFRO.M.428	Saimiri	ustus			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0375	91	UFRO.M.510	Saimiri	ustus			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0376	102	RVR19	Sapajus	apella			Sapajus_apella	Sapajus_apella.fasta
+PD_0377	281	TRO514	Sapajus	apella			Sapajus_apella	Sapajus_apella.fasta
+PD_0378	335	PUR173	Sapajus	macrocephalus			Sapajus_apella	Sapajus_apella.fasta
+PD_0379	191	FES08	Sapajus	macrocephalus			Sapajus_apella	Sapajus_apella.fasta
+PD_0380	310	JAT19	Sapajus	apella			Sapajus_apella	Sapajus_apella.fasta
+PD_0381	61	JPB80	Sapajus	macrocephalus			Sapajus_apella	Sapajus_apella.fasta
+PD_0382	172	FES27	Sapajus	macrocephalus			Sapajus_apella	Sapajus_apella.fasta
+PD_0383	185	FES45	Sapajus	macrocephalus			Sapajus_apella	Sapajus_apella.fasta
+PD_0384	298	SIS118	Sapajus	macrocephalus			Sapajus_apella	Sapajus_apella.fasta
+PD_0385	338	PUR205	Sapajus	macrocephalus			Sapajus_apella	Sapajus_apella.fasta
+PD_0386	193	HGLN06	Sapajus	macrocephalus			Sapajus_apella	Sapajus_apella.fasta
+PD_0387	198	JAP749	Sapajus	macrocephalus			Sapajus_apella	Sapajus_apella.fasta
+PD_0388	199	JAP715	Sapajus	macrocephalus			Sapajus_apella	Sapajus_apella.fasta
+PD_0389	208	JAP709	Sapajus	macrocephalus			Sapajus_apella	Sapajus_apella.fasta
+PD_0402	314	SIS129	Cebus	albifrons			Sapajus_apella	Sapajus_apella.fasta
+PD_0409	194	FES17	Chiropotes	albinasus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0412	179	FES35	Alouatta	seniculus			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0413	204	JAP690	Alouatta	seniculus			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0414	222	JAP768	Alouatta	seniculus			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0415	247	TAP314_354	Alouatta	nigerrima			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0416	292	TRO523	Alouatta	macconnelli			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0417	308	SIS66	Alouatta	macconnelli			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0418	315	SIS104	Alouatta	seniculus			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0419	340	PUR158	Alouatta	puruensis			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0420	436	JT067	Alouatta	juara			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0421	438	JT060	Alouatta	juara			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0422	440	Masto1492	Alouatta	seniculus			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0423	442	Masto1493	Alouatta	seniculus			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0424	444	SMUF88	Alouatta	seniculus			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0425	445	SMUF84	Alouatta	seniculus			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0426	475	FES61	Alouatta	puruensis			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0428	64	JPB83	Alouatta	seniculus			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0429	90	UFRO.M.509	Alouatta	puruensis		FAIL	Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0430	99	UFRO.M.577	Alouatta	puruensis			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0431	163	JT077	Ateles	chamek			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0432	195	FES25	Ateles	chamek			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0433	196	FES24	Ateles	chamek			Ateles_fusciceps	Atele_fusciceps.fasta
+PD_0434	120	Masto1383	Cacajao	calvus			Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0435	162	JT003	Cacajao	calvus	rubicundus		Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0436	164	JT078	Cacajao	calvus	rubicundus		Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0437	167	JT088	Cacajao	calvus	rubicundus		Pithecia_pithecia	Pithecia_pithecia.fasta
+PD_0174	Sgeo_Melin	SgeoMelin	Saguinus	geoffroyi				
+PD_0176	Soer_Melin	SoerMelin	Saimiri	oersteddii				

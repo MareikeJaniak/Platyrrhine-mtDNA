@@ -1,0 +1,244 @@
+---
+title: "mtDNA plat BEAST2"
+output: html_document
+---
+
+Load packages:
+```{r}
+library(ggplot2)
+library(fuzzyjoin)
+library(tidyr)
+library(dplyr)
+library(stringr)
+library(ggtree)
+library(deeptime)
+```
+
+Assess convergence between the two 1 mil runs so far
+```{r}
+library(convenience)
+```
+
+Compare the two runs
+```{r}
+output <- checkConvergence(list_files = "../Platyrrhine_mtDNA/BEAST2/NestedSampling/mtDNA_plat_trimmed.log", format = "beast", control = makeControl(burnin = 0.1))
+
+# Function doesn't accept burn-in larger than 0, for some reason. Testing with file where burn-in trees (first 20%) have been removed
+```
+
+Read in best BEAST tree (from TreeAnnotator)
+```{r}
+beast_tr <- treeio::read.beast("../Platyrrhine_mtDNA/BEAST2/run13_15Sep2021/mtDNA.chain1chain2.combo.MCC.tree")
+
+beast_tr2 <- treeio::drop.tip(beast_tr, tip = c("NC_020008.2_Papio_kindae", "NC_001643.1_Pan_troglodytes", "NC_004025.1_Lemur_catta", "NC_006901.1_Colobus_guereza", "NC_012774.1_Carlito_syrichta", "NC_018753.1_Nomascus_gabriellae"))
+
+mtDNA_tree <- mtDNA_MCMCtr$apePhy
+mtDNA_tree2 <- drop.tip(mtDNA_tree, tip = c("Papio_kindae_NC_020008.2", "Nomascus_gabriellae_NC_018753.1", "Pan_troglodytes_NC_001643.1", "Colobus_guereza_NC_006901.1", "Lemur_catta_NC_004025.1", "Carlito_syrichta_NC_012774.1"))
+```
+
+Read in metadata for better tip labels:
+```{r}
+plat_meta <- read.delim("../Platyrrhine_mtDNA/metadata/sample_info_plat_mtDNA_Dec2021.txt", header = TRUE)
+```
+
+Change tip labels:
+```{r}
+tip_df <- data.frame(tips = (treeio::get.tree(beast_tr))$tip.label)
+
+tree_df <- tip_df %>% fuzzy_inner_join(plat_meta, by = c("tips" = "PGDP_ID"), match_fun = str_detect)
+
+tree_df <- tree_df[,1:7]
+tree_df$tiplab <- paste(tree_df$Genus,tree_df$Species,tree_df$Subspecies)
+tree_df$treelab <- paste(tree_df$tiplab,tree_df$PGDP_ID)
+tree_df$treelab <- gsub(" ", "_", tree_df$treelab)
+write.table(tree_df, file = "../Platyrrhine_mtDNA/BEAST2/run13_15Sep2021/tiplabel_table_Dec2021.txt", sep = "\t", quote = FALSE, row.names = FALSE, col.names = FALSE, na = "NA")
+
+tree_df$tiplab <- paste(tree_df$Genus,tree_df$Species,tree_df$Subspecies)
+tree_df$treelab <- paste(tree_df$tiplab,tree_df$ProviderID2)
+tree_df$treelab <- gsub(" ", "_", tree_df$treelab)
+tree_df$treelab <- gsub("__", "_", tree_df$treelab)
+tree_df$treelab2 <- paste(tree_df$Genus,tree_df$Species,tree_df$PGDP_ID)
+tree_df$treelab2 <- gsub(" ", "_", tree_df$treelab2)
+write.table(tree_df, file = "../Platyrrhine_mtDNA/BEAST2/run13_15Sep2021/tiplabel_table_BoubliLabels.txt", sep = "\t", quote = FALSE, row.names = FALSE, col.names = FALSE, na = "NA")
+```
+
+Circular tree:
+```{r}
+p_tr_circ <- ggtree(beast_tr2, layout = "fan", open.angle = 9, size = 0.3) %<+% tree_df +
+  geom_range(range = 'height_0.95_HPD', color='blue', size=2.5, alpha=.4, center = 'height') +
+  geom_tiplab(size = 1.8, aes(label = paste0('italic(',Genus, ')~', 'italic(',Species, ')~', PGDP_ID)), parse=T) +
+  geom_text2(aes(label = round(posterior, 2), subset = !isTip), size = 2, nudge_x = -0.5, nudge_y = 0.5); p_tr_circ
+#  geom_text2(aes(label = round(posterior, 2), subset = as.numeric(posterior)< 0.78 & as.numeric(posterior)> 0.76), size = 2, nudge_x = -0.5, nudge_y = 0.5) +
+#  geom_text2(aes(label = round(posterior, 2), subset = as.numeric(posterior)< 0.65 & as.numeric(posterior)> 0.62), size = 2, nudge_x = -0.5, nudge_y = 0.5) +
+  xlim(0,21); p_tr_circ
+```
+
+Rectangular tree with geological time scale:
+```{r}
+p_tr <- ggtree(beast_tr) %<+% tree_df +
+  geom_range('height_0.95_HPD', color='red', size=2.5, alpha=.4) +
+  geom_tiplab(size = 2, aes(label = paste0('italic(',Genus, ')~', 'italic(',Species, ')~', PGDP_ID)), parse=T) +
+#  geom_nodelab(aes(label = round(posterior, 2)), size = 2, nudge_x = -0.5, nudge_y = 0.5) +
+  coord_cartesian(xlim = c(-55, 5), ylim = c(-5, 250), expand = TRUE) +
+  scale_x_continuous(breaks=seq(-55, 0, 5), labels=abs(seq(-55, 0, 5))) +
+  theme_tree2()
+p <- revts(p_tr)
+p <- gggeo_scale_old(p, dat = "periods", neg = TRUE, abbrv = FALSE, skip = NULL, size = 2, height = 0.01)
+p_mito_tr <- gggeo_scale_old(p, dat = "epochs", neg = TRUE, abbrv = FALSE, size = 2, gap = 0.01, height = 0.01); p_mito_tr 
+```
+
+
+```{r}
+plotTree(mtDNA_tree2, ftype = "i", lwd = 1, fsize=0.4, type = "fan", part = 0.97)
+
+obj<-axis(1,pos=-0.5,at=c(0.58376,3.58376,8.58376,13.58376,16.58376,18.58376),cex.axis=0.2, tcl=-0.3,labels=FALSE)
+text(obj,rep(-1.8,length(obj)),labels=c("18", "15", "10", "5", "2", "0"),cex=0.4)
+text(mean(obj),0.5,"time (ma)",cex=0.45)
+for(i in 1:(length(obj)-1)){
+    a1<-atan(-2/obj[i])
+    a2<-1*2*pi
+    plotrix::draw.arc(0,0,radius=obj[i],a1,a2,lwd=1,
+        col=make.transparent("blue",0.25))
+}
+#plotTree(mtDNA_tree2,type="fan",
+#    xlim=get("last_plot.phylo",envir=.PlotPhyloEnv)$x.lim,
+#    ylim=get("last_plot.phylo",envir=.PlotPhyloEnv)$y.lim,
+#    ftype="off",add=TRUE,part=0.97,lwd=1)
+```
+
+Save as pdf
+```{r}
+ggsave("../Platyrrhine_mtDNA/Figures/BEAST2_tree_timescale.pdf", plot = p_mito_tr, height = 24, width = 20, useDingbats = FALSE)
+```
+
+### Make time tree with MCMCTreeR 
+
+Change format of BEAST tree to be compatible with MCMCTreeR
+
+(remove annotations at tips)
+In vim use: 
+:%s/\d\zs\[&height=\w*[^\]]*\]//g
+
+:%s/,height_median=[0-9]*\.[0-9E-]*,height_range=[{0-9]*\.[0-9E-]*,[0-9]*\.[0-9E-]*},length=[0-9]*\.[0-9E-]*,length_95%_HPD=[{0-9]*\.[0-9E-]*,[0-9]*\.[0-9E-]*},length_median=[0-9]*\.[0-9E-]*,length_range=[{0-9]*\.[0-9E-]*,[0-9]*\.[0-9E-]*}//g
+
+:%s/,rate=[0-9]*\.\w*,rate_95%_HPD=[{0-9]*\.\w*,[0-9]*\.\w*},rate_median=[0-9]*\.\w*,rate_range=[{0-9]*\.\w*,[0-9]*\.\w*}//g
+
+Then 
+```{bash}
+while read line; do old_label=$(echo $line | awk '{print $1}'); new_label=$(echo "$line" | awk -F '\t' '{print $9}'); sed -i '' -e "s/$old_label/$new_label/g" plat_mtDNA.MCC.MCMCTreeR_format.tree; done < tiplable_table.txt
+### also used to change tip labels from PD IDs to Boubli IDs
+
+while read line; do number=$(echo $line | awk '{print $1}'); label=$(echo $line | awk '{print $2}'); sed -i '' -e "s/,$number:/,$label:/" plat_mtDNA.MCC.MCMCTreeR_format.tree; done < beast_tiplabels_numbers.txt
+while read line; do number=$(echo $line | awk '{print $1}'); label=$(echo $line | awk '{print $2}'); sed -i '' -e "s/($number:/($label:/" mtDNA.chain1chain2.combo.MCC.MCMCTreeR_format.tree; done < beast_tiplabels_numbers.txt
+```
+
+Plot with MCMCTreeR
+```{r}
+library(MCMCtreeR)
+mtDNA_MCMCtr <- readMCMCtree("../Platyrrhine_mtDNA/BEAST2/run13_15Sep2021/mtDNA.chain1chain2.combo.MCC.MCMCTreeR_format.tree")
+```
+
+Get posteriors for nodelabels
+```{r}
+library(gtools)
+
+mtDNA_nodelabels <- as.data.frame(beast_tr@data$node)
+mtDNA_nodelabels$posterior <- round(beast_tr@data$posterior, digits = 2)
+colnames(mtDNA_nodelabels) <- c("node", "posterior")
+mtDNA_nodelabels <- subset(mtDNA_nodelabels, mtDNA_nodelabels$posterior != "NA")
+mtDNA_nodelabels$posterior <- gsub("1.00", "1", mtDNA_nodelabels$posterior)
+rownames(mtDNA_nodelabels) <- mtDNA_nodelabels$node
+
+mtDNA_nodelabels <- mtDNA_nodelabels[mixedorder(mtDNA_nodelabels$node),]
+
+mtDNA_matrix <- as.matrix(mtDNA_nodelabels)
+```
+
+
+With prior distribution bars
+```{r}
+MCMC.tree.plot(phy=mtDNA_MCMCtr, 
+               cex.tips=0.4, 
+               time.correction=1, 
+               plot.type="phylogram", 
+               show.tip.label = TRUE,
+               label.offset=0.5,
+               cex.age=0.6, 
+               cex.labels=0.7, 
+               relative.height=0.04, 
+               col.tree="grey40",
+               tck.abs.age = 0.005,
+               lwd.bar = 5, 
+               col.age = "#4169E170",
+               scale.res=c("Period", "Epoch"), 
+               node.method="bar", 
+               no.margin=TRUE) 
+nodelabels(mtDNA_matrix[,2], frame = "none", cex = 0.6, adj = -0.2)
+```
+
+```{r}
+ggsave("../Platyrrhine_mtDNA/Figures/BEAST_plat_mtDNA_tree.pdf", height = 12, width = 15, useDingbats = FALSE)
+```
+
+Lineages through time
+```{r}
+library(castor)
+```
+
+```{r}
+LTT_results <- count_lineages_through_time(beast_tr@phylo, Ntimes = 100, max_time = 49.5, min_time = 25)
+
+plot(LTT_results$times, log(LTT_results$lineages), type="l", xlab="time", ylab="# clades")
+```
+
+Fit pulled diversification rates of birth-death models on a time grid
+```{r}
+root_age <- get_tree_span(beast_tr@phylo)$max_distance
+
+age_grid <- seq(from=0.5, to=25, length.out=50)
+
+fit <- fit_hbd_pdr_on_grid(beast_tr@phylo, 
+                           age_grid = age_grid,
+                           min_PDR = -100,
+                           max_PDR = +100,
+                           oldest_age = 25,
+                           age0 = 0.5,
+                           condition = "stem",
+                           Ntrials = 10,
+                           Nthreads = 2, 
+                           max_model_runtime = 1)
+
+l <- msir::loess.sd(fit$age_grid, fit$fitted_PDR, span = 0.2, degree = 2, nsigma = stats::qnorm(0.975))
+
+plot( x = fit$age_grid,
+        y = fit$fitted_PDR,
+        main  = 'Fitted PDR',
+        xlab  = 'age',
+        ylab  = 'PDR',
+        type  = 'b',
+        col   = 'red',
+        xlim  = c(25,0), 
+      ylim = c(-0.25, 0.35)) 
+lines(l, col="blue")
+#lines(l$x, l$upper, lty=2)
+#lines(l$x, l$lower, lty=2)
+polygon(c(l$x, rev(l$x)), c(l$upper, rev(l$lower)), col="#00009920", border=NA)
+abline(h=0, col="grey")
+
+```
+
+Inverse branch-lengths by time (?) Robin's weird idea
+```{r}
+library(tidytree)
+library(ggplot2)
+mtDNA_tibble <- as_tibble(beast_tr)
+```
+
+plot (branch length by age?)
+```{r}
+ggplot(subset(mtDNA_tibble, mtDNA_tibble$height > 1), aes(x = height, y = 1/branch.length)) + 
+  geom_point() +
+  scale_x_reverse() +
+  xlim(30,0)
+```
+

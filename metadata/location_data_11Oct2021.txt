@@ -1,0 +1,241 @@
+AC_t1		AC10	Alouatta	caraya				-27.658456	-56.074939		AC_t1.1	Species32	Species21	Atelidae
+PD_0177.1		KSTR5A	Ateles	geoffroyi				-3.227034	-60.059117	placeholder	PD_0177.1	Species50	Species32	Atelidae
+AGC_m1		52.41	Alouatta	guariba	clamitans			-26.942803	-54.516458		AGC_m1.1	Species37	Species25	Atelidae
+PD_0175.1		KSTR199	Alouatta	palliata				-3.227034	-60.059117	placeholder	PD_0175.1	Species41	Species28	Atelidae
+KY202428.1_Alouatta_guariba_clamitans			Alouatta	guariba	clamitans			-3.227034	-60.059117	loc_NA_placeholder	KY202428.1_Alouatta_guariba	Species38	Species25	Atelidae
+NC_001643.1_Pan_troglodytes			Pan	troglodytes				-3.227034	-60.059117	loc_NA_placeholder	NC_001643.1_Pan_troglodytes	NA	NA	NA
+NC_002763.1_Cebus_albifrons			Cebus	albifrons				-3.227034	-60.059117	loc_NA_placeholder	NC_002763.1_Cebus_albifrons	Species57	Species36	Cebidae
+NC_006901.1_Colobus_guereza			Colobus	guereza				-3.227034	-60.059117	loc_NA_placeholder	NC_006901.1_Colobus_guereza	NA	NA	NA
+NC_012775.1_Saimiri_sciureus			Saimiri	sciureus				-3.227034	-60.059117	loc_NA_placeholder	NC_012775.1_Saimiri_sciureus	Species70	Species39	Cebidae
+NC_018096.1_Saimiri_boliviensis_boliviensis		NC_018096	Saimiri	boliviensis	boliviensis			-16.383852	-64.222569	approximate	NC_018096.1_Saimiri_boliviensis_boliviensis	Species70	Species39	Cebidae
+NC_018115.1_Aotus_azarai_azarai		NC_018115	Aotus	azarai	azarai			-26.035129	-57.989178	approximate	NC_018115.1_Aotus_azarai_azarai	Species99	Species51	Aotidae
+NC_018116.1_Aotus_nancymaae			Aotus	nancymaae				-3.227034	-60.059117	loc_NA_placeholder	NC_018116.1_Aotus_nancymaae	Species101	Species52	Aotidae
+NC_018753.1_Nomascus_gabriellae			Nomascus	gabriellae				-3.227034	-60.059117	loc_NA_placeholder	NC_018753.1_Nomascus_gabriellae	NA	NA	NA
+NC_019799.1_Aotus_lemurinus			Aotus	lemurinus				-3.227034	-60.059117	loc_NA_placeholder	NC_019799.1_Aotus_lemurinus	Species100	Species52	Aotidae
+NC_019800.1_Ateles_belzebuth			Ateles	belzebuth				-3.227034	-60.059117	loc_NA_placeholder	NC_019800.1_Ateles_belzebuth	Species45	Species30	Atelidae
+NC_019801.1_Callicebus_donacophilus			Callicebus	donacophilus				-3.227034	-60.059117	loc_NA_placeholder	NC_019801.1_Callicebus_donacophilus	Species13	Species6	Pitheciidae
+NC_020008.2_Papio_kindae			Papio	kindae				-3.227034	-60.059117	loc_NA_placeholder	NC_020008.2_Papio_kindae	NA	NA	NA
+NC_021938.1_Alouatta_caraya			Alouatta	caraya				-3.227034	-60.059117	loc_NA_placeholder	NC_021938.1_Alouatta_caraya	Species32	Species21	Atelidae
+NC_021939.1_Aotus_azarai			Aotus	azarai				-3.227034	-60.059117	loc_NA_placeholder	NC_021939.1_Aotus_azarai	Species99	Species51	Aotidae
+NC_021941.1_Callithrix_geoffroyi			Callithrix	geoffroyi				-3.227034	-60.059117	loc_NA_placeholder	NC_021941.1_Callithrix_geoffroyi	Species83	Species46	Callitrichidae
+NC_021942.1_Callithrix_pygmaea			Callithrix	pygmaea				-3.227034	-60.059117	loc_NA_placeholder	NC_021942.1_Callithrix_pygmaea	Species89	Species47	Callitrichidae
+NC_021946.1_Chiropotes_albinasus			Chiropotes	albinasus				-3.227034	-60.059117	loc_NA_placeholder	NC_021946.1_Chiropotes_albinasus	Species28	Species19	Pitheciidae
+NC_021951.1_Lagothrix_lagotricha			Lagothrix	lagotricha				-3.227034	-60.059117	loc_NA_placeholder	NC_021951.1_Lagothrix_lagotricha	Species42	Species29	Atelidae
+NC_021952.1_Leontopithecus_rosalia			Leontopithecus	rosalia				-3.227034	-60.059117	loc_NA_placeholder	NC_021952.1_Leontopithecus_rosalia	Species96	Species49	Callitrichidae
+NC_021960.1_Saguinus_oedipus			Saguinus	oedipus				-3.227034	-60.059117	loc_NA_placeholder	NC_021960.1_Saguinus_oedipus	Species71	Species40	Callitrichidae
+NC_021961.1_Cebus_xanthosternos			Cebus	xanthosternos				-3.227034	-60.059117	loc_NA_placeholder	NC_021961.1_Cebus_xanthosternos	Species52	Species34	Cebidae
+NC_021965.1_Callicebus_cupreus			Callicebus	cupreus				-3.227034	-60.059117	loc_NA_placeholder	NC_021965.1_Callicebus_cupreus	Species2	Species1	Pitheciidae
+NC_021966.1_Saimiri_boliviensis			Saimiri	boliviensis				-3.227034	-60.059117	loc_NA_placeholder	NC_021966.1_Saimiri_boliviensis	Species70	Species39	Cebidae
+NC_021967.1_Cacajao_calvus			Cacajao	calvus				-3.227034	-60.059117	loc_NA_placeholder	NC_021967.1_Cacajao_calvus	Species23	Species15	Pitheciidae
+NC_023211.1_Saimiri_oerstedii_citrinellus		NC_023211	Saimiri	oerstedii	citrinellus			9.549719	-84.490432	approximate	NC_023211.1_Saimiri_oerstedii_citrinellus	Species68	Species38	Cebidae
+NC_024628.1_Callimico_goeldii			Callimico	goeldii				-3.227034	-60.059117	loc_NA_placeholder	NC_024628.1_Callimico_goeldii	Species95	Species48	Callitrichidae
+NC_024629.1_Chiropotes_israelita			Chiropotes	israelita				-3.227034	-60.059117	loc_NA_placeholder	NC_024629.1_Chiropotes_israelita	Species31	Species20	Pitheciidae
+NC_024630.1_Callicebus_lugens			Callicebus	lugens				-3.227034	-60.059117	loc_NA_placeholder	NC_024630.1_Callicebus_lugens	Species14	Species7	Pitheciidae
+NC_025586.1_Callithrix_jacchus			Callithrix	jacchus				-3.227034	-60.059117	loc_NA_placeholder	NC_025586.1_Callithrix_jacchus	Species85	Species46	Callitrichidae
+NC_027658.1_Callithrix_kuhlii			Callithrix	kuhlii				-3.227034	-60.059117	loc_NA_placeholder	NC_027658.1_Callithrix_kuhlii	Species84	Species46	Callitrichidae
+NC_027825.1_Alouatta_seniculus			Alouatta	seniculus				-3.227034	-60.059117	loc_NA_placeholder	NC_027825.1_Alouatta_seniculus	Species35	Species23	Atelidae
+NC_030788.1_Callithrix_penicillata_isolate_cpe001			Callithrix	penicillata				-3.227034	-60.059117	loc_NA_placeholder	NC_030788.1_Callithrix_penicillata_isolate_cpe001	Species86	Species46	Callitrichidae
+NC_037878.1_Leontopithecus_chrysopygus			Leontopithecus	chrysopygus				-3.227034	-60.059117	loc_NA_placeholder	NC_037878.1_Leontopithecus_chrysopygus	Species97	Species49	Callitrichidae
+NC_050682.1_Callithrix_aurita			Callithrix	aurita				-3.227034	-60.059117	loc_NA_placeholder	NC_050682.1_Callithrix_aurita	Species82	Species45	Callitrichidae
+NC_050883.1_Sapajus_flavius			Sapajus	flavius				-3.227034	-60.059117	loc_NA_placeholder	NC_050883.1_Sapajus_flavius	Species51	Species33	Cebidae
+PD_0001	28	JPB108	Cheracebus	lugens		sequenced		-0.3426	-65.15		PD_0001.1	Species14	Species7	Pitheciidae
+PD_0002	9	CCM138	Callibela	humilis		failed		-5.5	-60.4		PD_0002.1	Species91	Species47	Callitrichidae
+PD_0003	24	MN68611	Cacajao	hosomi		sequenced		0.4917	-65.2717		PD_0003.1	Species25	Species17	Pitheciidae
+PD_0004	25	JPB105	Ateles	belzebuth		sequenced		0.4917	-65.2717		PD_0004.1	Species45	Species30	Atelidae
+PD_0005	41	JPB129	Alouatta	macconnelli		sequenced		0.8523	-63.4814		PD_0005.1	Species34	Species22	Atelidae
+PD_0006	42	JPB131	Chiropotes	israelita		sequenced		0.8523	-63.4814		PD_0006.1	Species31	Species20	Pitheciidae
+PD_0007	49	JPB142	Cebus	olivaceus		sequenced		-0.1175	-63.3542		PD_0007.1	Species57	Species36	Cebidae
+PD_0008	44	JPB134	Aotus	trivirgatus		sequenced		-0.8523	-63.4814		PD_0008.1	Species98	Species50	Aotidae
+PD_0009	65	JPB85	Saguinus	inustus		failed		-0.73	-65.33		PD_0009.1	Species78	Species43	Callitrichidae
+PD_0010	150	JT32	Cebuella	niveiventris		sequenced		-3.21801	-67.334296		PD_0010.1	Species88	Species47	Callitrichidae
+PD_0011	172	FES27	Sapajus	macrocephalus		sequenced	PD_0382	-2.9038	-68.3571		PD_0011.1	Species51	Species35	Cebidae
+PD_0012	190	FES22	Saimiri	ustus		sequenced	PD_0369	-6.0221	-61.6319		PD_0012.1	Species64	Species38	Cebidae
+PD_0013	202	JAP738	Cebus	unicolor		sequenced		-1.7092	-69.1093		PD_0013.1	Species55	Species35	Cebidae
+PD_0014	450	JT037	Plecturocebus	cupreus		sequenced		-3.1395	-67.364		PD_0014.1	Species1	Species1	Pitheciidae
+PD_0015	471	FES57	Pithecia	vanzolinii		sequenced		-6.7799	-70.0189		PD_0015.1	Species20	Species12	Pitheciidae
+PD_0016	486	FES94	Lagothrix	lagothricha		sequenced		-6.9485	-69.7299		PD_0016.1	Species42	Species29	Atelidae
+PD_0017	512	FES50	Leontocebus	nigricollis		sequenced		-2.9543	-68.4239		PD_0017.1	Species80	Species44	Callitrichidae
+PD_0018	3	CCM017	Cacajao	melanocephalus		sequenced		-3.54	-61.45		PD_0018.1	Species27	Species18	Pitheciidae
+PD_0019	47	INPA5247	Cacajao	ayresi		sequenced		-0.5481	-62.9112		PD_0019.1	Species25	Species17	Pitheciidae
+PD_0020	119	Masto283	Cacajao	calvus	calvus	sequenced		-2.9118	-64.9346		PD_0020.1	Species23	Species15	Pitheciidae
+PD_0021	158	JT063	Cacajao	calvus	rubicundus	sequenced		-3.2008	-67.4226		PD_0021.1	Species24	Species16	Pitheciidae
+PD_0022	261	CTGAM05667	Cacajao	ayresi		sequenced		-0.3857	-62.9523		PD_0022.1	Species25	Species17	Pitheciidae
+PD_0023	481	FES67	Cacajao	calvus	novaesi	sequenced		-6.8643	-70.1958		PD_0023.1	Species24	Species16	Pitheciidae
+PD_0024	511	FES102	Cacajao	calvus	calvus	sequenced		-3.065	-64.8444		PD_0024.1	Species23	Species15	Pitheciidae
+PD_0025	54	JPB162	Alouatta	seniculus		sequenced		0.0878	-66.8222		PD_0025.1	Species35	Species23	Atelidae
+PD_0026	101	RVR108	Alouatta	puruensis		sequenced		-9.9542	-56.0637		PD_0026.1	Species36	Species24	Atelidae
+PD_0027	253	TAP315_355	Alouatta	discolor		sequenced		-3.4359	-55.2369		PD_0027.1	Species40	Species27	Atelidae
+PD_0072	433	SMUF101	Alouatta	seniculus		sequenced		-2.7538	-64.21		PD_0072.1	Species35	Species23	Atelidae
+PD_0073	98	UFRO.M.576	Alouatta	caraya		sequenced		-12.3013	-63.3236		PD_0073.1	Species33	Species21	Atelidae
+PD_0074	114	RVR96	Ateles	chamek		sequenced		-9.9783	-56.0814		PD_0074.1	Species47	Species30	Atelidae
+PD_0075	286	TRO682	Ateles	paniscus		sequenced		-1.4201	-56.7206		PD_0075.1	Species49	Species31	Atelidae
+PD_0076	388	INPA667	Ateles	marginatus		sequenced		-9	-53		PD_0076.1	Species47	Species30	Atelidae
+PD_0077	2	ALQ100	Cebus	unicolor		sequenced		-2.9164	-60.0777	loc_NA_placeholder	PD_0077.1	Species56	Species35	Cebidae
+PD_0078	17	MNFS1174	Cebus	albifrons		sequenced		-8.6667	-72.7833		PD_0078.1	Species54	Species35	Cebidae
+PD_0079	263	CTGAM5611	Cebus	olivaceus		sequenced		-1.0482	-61.8671		PD_0079.1	Species57	Species36	Cebidae
+PD_0080	10?	CCM157?	Saguinus	sp		sequenced	PD_0324	-2.9164	-60.0777	loc_NA_placeholder	PD_0080.1	Species75	Species42	Callitrichidae
+PD_0081	287	TRO582	Chiropotes	sagulatus		sequenced		-1.4822	-56.8009		PD_0081.1	Species30	Species20	Pitheciidae
+PD_0082	290	TRO560	Chiropotes	sagulatus		sequenced		-1.4822	-56.8009		PD_0082.1	Species30	Species20	Pitheciidae
+PD_0083	4	CCM103	Pithecia	pissinatti		sequenced		-3.57	-59.05		PD_0083.1	Species20	Species12	Pitheciidae
+PD_0084	15	CCM253	Pithecia	chrysocephala		sequenced		-2.8	-60		PD_0084.1	Species22	Species14	Pitheciidae
+PD_0085	174	FES29	Pithecia	hirsuta		sequenced		-2.8895	-68.3681		PD_0085.1	Species20	Species12	Pitheciidae
+PD_0086	256	TAP214	Pithecia	mittermeieri		sequenced		-3.3153	-55.3247		PD_0086.1	Species20	Species12	Pitheciidae
+PD_0087	323	PUR204	Pithecia	albicans		sequenced		-4.9868	-62.9593		PD_0087.1	Species21	Species13	Pitheciidae
+PD_0088	510	FES101	Cacajao	calvus	ucayalii	sequenced		-7.4614	-73.6679		PD_0088.1	Species24	Species16	Pitheciidae
+PD_0089	278	TRO504	Alouatta	macconnelli		sequenced		-1.4256	-56.7546		PD_0089.1	Species34	Species22	Atelidae
+PD_0128	29	CTGA5705	Cacajao	melanocephalus		sequenced		-0.4727	-65.1706		PD_0128.1	Species26	Species18	Pitheciidae
+PD_0129	55	JPB163	Cacajao	hosomi		sequenced		1.1349	-66.417		PD_0129.1	Species25	Species17	Pitheciidae
+PD_0130	160	JT062	Cacajao	calvus	rubicundus	sequenced		-3.2009	-67.4227		PD_0130.1	Species24	Species16	Pitheciidae
+PD_0131	267	CTGAM05666	Cacajao	ayresi		sequenced		-0.3857	-62.9523		PD_0131.1	Species25	Species17	Pitheciidae
+PD_0132	479	FES65	Cacajao	calvus	novaesi	sequenced		-6.8643	-70.1958		PD_0132.1	Species24	Species16	Pitheciidae
+PD_0133	509	FES100	Cacajao	calvus	ucayalii	sequenced		-7.4614	-73.6679		PD_0133.1	Species24	Species16	Pitheciidae
+PD_0134	58	JPB72	Alouatta	seniculus		sequenced		0.7687	-65.7076		PD_0134.1	Species35	Species23	Atelidae
+PD_0135	269	CTGAM05641	Alouatta	macconnelli		sequenced		-0.9896	-61.8913		PD_0135.1	Species34	Species22	Atelidae
+PD_0136	441	Masto1494	Alouatta	seniculus		sequenced		-3.3598	-64.7184		PD_0136.1	Species35	Species23	Atelidae
+PD_0137	77	UFRO.M.384	Alouatta	puruensis		sequenced		-8.89	-64		PD_0137.1	Species36	Species24	Atelidae
+PD_0138	37	JPB125	Ateles	belzebuth		sequenced		0.8789	-63.4494		PD_0138.1	Species46	Species30	Atelidae
+PD_0139	170	JT008	Ateles	chamek		sequenced		-3.174	-67.3895		PD_0139.1	Species43	Species30	Atelidae
+PD_0140	463	UFRO187	Ateles	chamek		sequenced		-12.0558	-60.6726		PD_0140.1	Species48	Species30	Atelidae
+PD_0141	23	JPB100	Cebus	albifrons		sequenced		0.4917	-65.2717		PD_0141.1	Species58	Species37	Cebidae
+PD_0142	240	TAP213	Chiropotes	albinasus		sequenced		-3.3143	-55.3242		PD_0142.1	Species28	Species19	Pitheciidae
+PD_0143	212	JAP699	Pithecia	hirsuta		sequenced		-1.8477	-69.047		PD_0143.1	Species20	Species12	Pitheciidae
+PD_0144	337	PUR169	Pithecia	pissinatti		sequenced		-6.25	-63.4203		PD_0144.1	Species20	Species12	Pitheciidae
+PD_0273	148	MPEG04	Plecturocebus	bernhardi		sequenced		-12.17	-63.19		PD_0273.1	Species11	Species4	Pitheciidae
+PD_0274	70	UFRO.M.327	Plecturocebus	brunneus		sequenced		-9.3686	-61.8778		PD_0274.1	Species4	Species3	Pitheciidae
+PD_0275	14	CCM248	Plecturocebus	caligatus		sequenced		-5.4907	-60.8246		PD_0275.1	Species3	Species2	Pitheciidae
+PD_0276	68	UFRO.M.195	Plecturocebus	cinerascens		sequenced		-12.0606	-60.6725		PD_0276.1	Species5	Species4	Pitheciidae
+PD_0277	81	UFRO.M.427	Plecturocebus	dubius		sequenced		-8.18	-64		PD_0277.1	Species3	Species2	Pitheciidae
+PD_0278	105	RVR22	Plecturocebus	grovesi		sequenced		-10.0017	-56.0423		PD_0278.1	Species9	Species4	Pitheciidae
+PD_0279	239	TAP234_249	Plecturocebus	hoffmannsi		sequenced		-3.3126	-55.3214		PD_0279.1	Species12	Species5	Pitheciidae
+PD_0280	127	FES13	Plecturocebus	miltoni		sequenced		-7.7364	-60.5152		PD_0280.1	Species7	Species4	Pitheciidae
+PD_0281	242	TAP364_434	Mico	argentatus		sequenced		-3.3485	-55.1967		PD_0281.1	Species94	Species47	Callitrichidae
+PD_0282	230	TAP211	Mico	humeralifer		sequenced		-3.3129	-55.3217		PD_0282.1	Species92	Species47	Callitrichidae
+PD_0283	106	RVR40	Mico	spnv		sequenced		-9.9825	-56.0725		PD_0283.1	Species93	Species47	Callitrichidae
+PD_0284	452	JT051	Cheracebus	regulus		sequenced		-3.28	-67.316		PD_0284.1	Species18	Species11	Pitheciidae
+PD_0285	329	PUR154	Cheracebus	torquatus		sequenced		-4.9845	-62.9602		PD_0285.1	Species19	Species11	Pitheciidae
+PD_0286	205	JAP759	Aotus	vociferans		sequenced		-1.6561	-69.203		PD_0286.1	Species98	Species50	Aotidae
+PD_0287	154	JT95	Cebuella	niveiventris		sequenced		-3.735624	-67.469317		PD_0287.1	Species87	Species47	Callitrichidae
+PD_0288	181	FES41	Cheracebus	lucifer		sequenced		-2.8912	-68.3552		PD_0288.1	Species17	Species10	Pitheciidae
+PD_0289	487	FES95	Cacajao	calvus		sequenced		-6.9351	-69.7379		PD_0289.1	Species23	Species15	Pitheciidae
+PD_0290	161	JT022	Cacajao	calvus		sequenced		-3.313	-67.3946		PD_0290.1	Species23	Species15	Pitheciidae
+PD_0291	490	RS64	Cacajao	calvus		sequenced		-7.6059	-65.132		PD_0291.1	Species23	Species15	Pitheciidae
+PD_0292	186	FES46	Cacajao	calvus		sequenced		-3.2369	-68.6181		PD_0292.1	Species24	Species16	Pitheciidae
+PD_0294	356	BM52712	Alouatta	belzebul		sequenced		-3.39	-52		PD_0294.1	Species39	Species26	Atelidae
+PD_0295	358	BM48342	Alouatta	discolor		sequenced		-3.371775658	-51.97462413		PD_0295.1	Species40	Species27	Atelidae
+PD_0296	250	TAP313_353	Alouatta	nigerrima		sequenced		-3.3171	-55.334		PD_0296.1	Species34	Species22	Atelidae
+PD_0298	449	SMUF78	Alouatta	seniculus		sequenced		-2.8606	-64.9263		PD_0298.1	Species35	Species23	Atelidae
+PD_0299	97	UFRO.M.573	Alouatta	caraya		sequenced		-12.3019	-63.3218		PD_0299.1	Species33	Species21	Atelidae
+PD_0300	157	JT010	Ateles	chamek		sequenced		-3.1735	-67.3899		PD_0300.1	Species43	Species30	Atelidae
+PD_0301	461	UFRO575	Ateles	chamek		sequenced		-12.49	-63.52		PD_0301.1	Species44	Species30	Atelidae
+PD_0302	462	UFRO479	Ateles	chamek		sequenced		-13.5182	-60.4436		PD_0302.1	Species43	Species30	Atelidae
+PD_0303	465	UFRO566	Ateles	chamek		sequenced		-12.491	-63.5241		PD_0303.1	Species44	Species30	Atelidae
+PD_0304	309	JAT44	Ateles	paniscus		sequenced		-2.0713	-58.3751		PD_0304.1	Species49	Species31	Atelidae
+PD_0307	169	JT085	Cacajao	calvus		sequenced		-3.2981	-67.1371		PD_0307.1	Species23	Species15	Pitheciidae
+PD_0308	171	JT090	Cacajao	calvus		sequenced		-3.7713	-67.4502		PD_0308.1	Species23	Species15	Pitheciidae
+PD_0309	341	JAP720	Cebuella	pygmaea		sequenced		-1.842472	-69.022833		PD_0309.1	Species90	Species47	Callitrichidae
+PD_0310	184	FES44	Cebus	unicolor		sequenced		-2.9038	-68.3571		PD_0310.1	Species53	Species35	Cebidae
+PD_0311	183	FES43	Cebus	unicolor		sequenced		-2.9038	-68.3571		PD_0311.1	Species53	Species35	Cebidae
+PD_0312	220	JAP726	Cheracebus	lucifer		sequenced		-1.8688	-69.0477		PD_0312.1	Species17	Species10	Pitheciidae
+PD_0313	227	JAP703	Cheracebus	lucifer		sequenced		-1.8429	-69.0275		PD_0313.1	Species17	Species10	Pitheciidae
+PD_0314	460	AP22	Cheracebus	lucifer		sequenced		-1.8215	-66.465		PD_0314.1	Species17	Species10	Pitheciidae
+PD_0315	30	JPB111	Cheracebus	lugens		sequenced		1.8067	-63.7844		PD_0315.1	Species14	Species7	Pitheciidae
+PD_0316	32	JPB119	Cheracebus	lugens		sequenced		1.1856	-64.8108		PD_0316.1	Species14	Species7	Pitheciidae
+PD_0317	35	JPB123	Cheracebus	lugens		sequenced		0.8523	-63.4814		PD_0317.1	Species14	Species7	Pitheciidae
+PD_0318	45	JPB136	Cheracebus	lugens		sequenced		0.6917	-62.8644		PD_0318.1	Species14	Species7	Pitheciidae
+PD_0319	52	JPB160	Cheracebus	lugens		sequenced		0.0878	-66.8222		PD_0319.1	Species14	Species7	Pitheciidae
+PD_0320	62	JPB81	Cheracebus	lugens		sequenced		-0.4782	-64.4113		PD_0320.1	Species15	Species8	Pitheciidae
+PD_0321	219	JAP733	Cheracebus	lugens		sequenced		-1.7091	-69.1093		PD_0321.1	Species16	Species9	Pitheciidae
+PD_0322	456	JT071	Cheracebus	regulus		sequenced		-3.2815	-67.3183		PD_0322.1	Species18	Species11	Pitheciidae
+PD_0323	7	CCM109	Chiropotes	albinasus		sequenced		-3.64	-57.44		PD_0323.1	Species28	Species19	Pitheciidae
+PD_0325	428	RCA70	Chiropotes	albinasus		sequenced		-9.8456	-58.2354		PD_0325.1	Species29	Species19	Pitheciidae
+PD_0326	34	JPB122	Chiropotes	israelita		sequenced		1.207	-64.7898		PD_0326.1	Species31	Species20	Pitheciidae
+PD_0327	46	JPB137	Chiropotes	israelita		sequenced		-0.4523	-62.724		PD_0327.1	Species31	Species20	Pitheciidae
+PD_0328	60	JPB79	Chiropotes	israelita		sequenced		-0.3426	-65.15		PD_0328.1	Species31	Species20	Pitheciidae
+PD_0329	274	TRO515	Chiropotes	sagulatus		sequenced		-1.4885	-56.7974		PD_0329.1	Species30	Species20	Pitheciidae
+PD_0330	293	TRO666	Chiropotes	sagulatus		sequenced		-1.4037	-56.7595		PD_0330.1	Species30	Species20	Pitheciidae
+PD_0331	11	CCM161	Pithecia	pissinatti		sequenced		-3.3153	-55.3247		PD_0331.1	Species20	Species12	Pitheciidae
+PD_0332	79	UFRO.M.413	Plecturocebus	bernhardi		sequenced		-9.3686	-61.8778		PD_0332.1	Species10	Species4	Pitheciidae
+PD_0333	128	FES14	Plecturocebus	bernhardi		sequenced		-5.9841	-61.5374		PD_0333.1	Species6	Species4	Pitheciidae
+PD_0334	92	UFRO.M.541	Plecturocebus	brunneus		sequenced		-9	-63		PD_0334.1	Species4	Species3	Pitheciidae
+PD_0335	320	PUR181	Plecturocebus	caligatus		sequenced		-6.25	-63.4203		PD_0335.1	Species3	Species2	Pitheciidae
+PD_0336	322	PUR182	Plecturocebus	caligatus		sequenced		-6.25	-63.4203		PD_0336.1	Species3	Species2	Pitheciidae
+PD_0337	131	HGLN5	Plecturocebus	cinerascens		sequenced		-7.6013	-60.7593		PD_0337.1	Species5	Species4	Pitheciidae
+PD_0338	1	AAM15	Plecturocebus	cupreus		sequenced		-3.8558	-63.8973		PD_0338.1	Species1	Species1	Pitheciidae
+PD_0339	156	SISPUR210	Plecturocebus	cupreus		sequenced		-4.9868	-62.9593		PD_0339.1	Species1	Species1	Pitheciidae
+PD_0340	455	JT068	Plecturocebus	cupreus		sequenced		-3.2045	-67.4322		PD_0340.1	Species1	Species1	Pitheciidae
+PD_0341	457	JT075	Plecturocebus	cupreus		sequenced		-3.7906	-67.4697		PD_0341.1	Species1	Species1	Pitheciidae
+PD_0342	78	UFRO.M.403	Plecturocebus	dubius		sequenced		-8.770107	-64.010055		PD_0342.1	Species3	Species2	Pitheciidae
+PD_0343	93	UFRO.M.544	Plecturocebus	dubius		sequenced		-8.51	-64.42		PD_0343.1	Species3	Species2	Pitheciidae
+PD_0344	252	TAP351420	Plecturocebus	moloch		sequenced		-3.3564	-55.206		PD_0344.1	Species8	Species4	Pitheciidae
+PD_0345	249?	TAP295_334?	Pithecia	sp		sequenced		-3.3918	-55.2203		PD_0345.1	Species20	Species12	Pitheciidae
+PD_0346	352	JPB165	Saguinus	bicolor		sequenced		-2.916	-59.9947		PD_0346.1	Species75	Species42	Callitrichidae
+PD_0347	325	PUR186	Leontocebus	fuscicollis	weddelli	sequenced		-6.3461	-63.4236		PD_0347.1	Species81	Species44	Callitrichidae
+PD_0348	334	PUR167	Saguinus	labiatus	rufiventer	sequenced		-6.2256	-63.4256		PD_0348.1	Species76	Species43	Callitrichidae
+PD_0349	280	TRO671	Saguinus	midas		sequenced		-1.4284	-56.7213		PD_0349.1	Species74	Species41	Callitrichidae
+PD_0350	313	JAT39	Saguinus	midas		sequenced		-2.0904	-58.4141		PD_0350.1	Species73	Species41	Callitrichidae
+PD_0351	333	PUR163	Saguinus	mystax		sequenced		-4.984527778	-62.96016667		PD_0351.1	Species77	Species43	Callitrichidae
+PD_0352	214	JAP719	Leontocebus	fuscicollis		sequenced		-1.8653	-69.0369		PD_0352.1	Species79	Species44	Callitrichidae
+PD_0353	57	JPB71	Saimiri	cassiquiarensis		sequenced		-0.697	-65.7946		PD_0353.1	Species59	Species38	Cebidae
+PD_0354	63	JPB82	Saimiri	cassiquiarensis		sequenced		-0.4782	-64.4113		PD_0354.1	Species59	Species38	Cebidae
+PD_0355	210	JAP760	Saimiri	cassiquiarensis		sequenced		-1.6749	-69.281		PD_0355.1	Species59	Species38	Cebidae
+PD_0356	265	CTGAM5610	Saimiri	cassiquiarensis		sequenced		-0.8316	-61.8689		PD_0356.1	Species59	Species38	Cebidae
+PD_0357	303	SIS113	Saimiri	cassiquiarensis		sequenced		-0.6111	-64.9213		PD_0357.1	Species59	Species38	Cebidae
+PD_0358	316	SIS94	Saimiri	cassiquiarensis		sequenced		-0.5808	-64.9118		PD_0358.1	Species59	Species38	Cebidae
+PD_0359	307	SIS120	Saimiri	cassiquiarensis		sequenced		-0.6134	-64.9207		PD_0359.1	Species59	Species38	Cebidae
+PD_0360	347	JAP761	Saimiri	cassiquiarensis		sequenced		-1.6749	-69.281		PD_0360.1	Species59	Species38	Cebidae
+PD_0361	350	JAP700	Saimiri	macrodon		sequenced		-1.8434	-69.0265		PD_0361.1	Species61	Species38	Cebidae
+PD_0362	224	JAP698	Saimiri	macrodon		sequenced		-1.8434	-69.0275		PD_0362.1	Species61	Species38	Cebidae
+PD_0363	233	TAP367_437	Saimiri	ustus		sequenced		-3.3544	-55.2203		PD_0363.1	Species67	Species38	Cebidae
+PD_0364	270	TRO588	Saimiri	sciureus		sequenced		-1.457305556	-56.78538889		PD_0364.1	Species63	Species38	Cebidae
+PD_0365	312	JAT20	Saimiri	sciureus		failed		-2.0157	-58.3315		PD_0365.1	Species69	Species38	Cebidae
+PD_0366	76	UFRO.M.358	Saimiri	ustus		sequenced		-8.8017	-62.76		PD_0366.1	Species66	Species38	Cebidae
+PD_0367	95	UFRO.M.567	Saimiri	ustus		sequenced		-13.3	-60.26		PD_0367.1	Species65	Species38	Cebidae
+PD_0368	71	UFRO.M.328	Saimiri	ustus		sequenced		-8.8027	-63.8		PD_0368.1	Species62	Species38	Cebidae
+PD_0370	321	PUR156	Saimiri	ustus		sequenced		-4.984527778	-62.96016667		PD_0370.1	Species62	Species38	Cebidae
+PD_0371	72	UFRO.M.329	Saimiri	ustus		sequenced		-8.18	-64		PD_0371.1	Species62	Species38	Cebidae
+PD_0372	175	FES30	Saimiri	macrodon		sequenced		-2.9038	-68.3571		PD_0372.1	Species60	Species38	Cebidae
+PD_0373	50	JPB143	Saimiri	cassiquiarensis		sequenced		-0.7394	-63.1144		PD_0373.1	Species59	Species38	Cebidae
+PD_0374	82	UFRO.M.428	Saimiri	ustus		sequenced		-8.18	-64		PD_0374.1	Species62	Species38	Cebidae
+PD_0375	91	UFRO.M.510	Saimiri	ustus		sequenced		-13.3	-60.26		PD_0375.1	Species66	Species38	Cebidae
+PD_0376	102	RVR19	Sapajus	apella		sequenced		-10.0036	-56.0479		PD_0376.1	Species51	Species36	Cebidae
+PD_0377	281	TRO514	Sapajus	apella		sequenced		-1.4885	-56.7974		PD_0377.1	Species51	Species37	Cebidae
+PD_0378	335	PUR173	Sapajus	macrocephalus		sequenced		-5.7	-63.22		PD_0378.1	Species51	Species34	Cebidae
+PD_0379	191	FES08	Sapajus	macrocephalus		sequenced		-7.6131	-60.7922		PD_0379.1	Species51	Species38	Cebidae
+PD_0380	310	JAT19	Sapajus	apella		sequenced		-2.0607	-58.3846		PD_0380.1	Species51	Species39	Cebidae
+PD_0381	61	JPB80	Sapajus	macrocephalus		sequenced		-0.4782	-64.4113		PD_0381.1	Species51	Species40	Cebidae
+PD_0383	185	FES45	Sapajus	macrocephalus		sequenced		-2.8895	-68.3681		PD_0383.1	Species51	Species41	Cebidae
+PD_0384	298	SIS118	Sapajus	macrocephalus		sequenced		-0.6134	-64.9207		PD_0384.1	Species51	Species42	Cebidae
+PD_0385	338	PUR205	Sapajus	macrocephalus		sequenced		-4.9868	-62.9593		PD_0385.1	Species51	Species43	Cebidae
+PD_0386	193	HGLN06	Sapajus	macrocephalus		sequenced		-7.6013	-60.7593		PD_0386.1	Species51	Species44	Cebidae
+PD_0387	198	JAP749	Sapajus	macrocephalus		sequenced		-1.7195	-69.1155		PD_0387.1	Species51	Species45	Cebidae
+PD_0388	199	JAP715	Sapajus	macrocephalus		sequenced		-1.8412	-69.0318		PD_0388.1	Species51	Species46	Cebidae
+PD_0389	208	JAP709	Sapajus	macrocephalus		sequenced		-1.8554	-69.0282		PD_0389.1	Species51	Species47	Cebidae
+PD_0402	314	SIS129	Cebus	albifrons		sequenced		-0.39	-64.78		PD_0402.1	Species58	Species37	Cebidae
+PD_0409	194	FES17	Chiropotes	albinasus		sequenced		-5.9841	-61.5374		PD_0409.1	Species29	Species19	Pitheciidae
+PD_0412	179	FES35	Alouatta	seniculus		sequenced		-2.9543	-68.4239		PD_0412.1	Species35	Species23	Atelidae
+PD_0413	204	JAP690	Alouatta	seniculus		sequenced		-1.8461	-69.0469		PD_0413.1	Species35	Species23	Atelidae
+PD_0414	222	JAP768	Alouatta	seniculus		sequenced		-1.7017	-69.1697		PD_0414.1	Species35	Species23	Atelidae
+PD_0415	247	TAP314_354	Alouatta	nigerrima		sequenced		-3.3171	-55.334		PD_0415.1	Species34	Species22	Atelidae
+PD_0416	292	TRO523	Alouatta	macconnelli		sequenced		-1.464	-56.7858		PD_0416.1	Species34	Species22	Atelidae
+PD_0417	308	SIS66	Alouatta	macconnelli		sequenced		-0.38	-64.79		PD_0417.1	Species34	Species22	Atelidae
+PD_0418	315	SIS104	Alouatta	seniculus		sequenced		-0.5886	-64.914		PD_0418.1	Species35	Species23	Atelidae
+PD_0419	340	PUR158	Alouatta	puruensis		sequenced		-4.9806	-62.9777		PD_0419.1	Species35	Species23	Atelidae
+PD_0420	436	JT067	Alouatta	juara		sequenced		-3.2159	-67.4075		PD_0420.1	Species35	Species23	Atelidae
+PD_0421	438	JT060	Alouatta	juara		sequenced		-3.2223	-67.3877		PD_0421.1	Species35	Species23	Atelidae
+PD_0422	440	Masto1492	Alouatta	seniculus		sequenced		-2.9118	-65		PD_0422.1	Species35	Species23	Atelidae
+PD_0423	442	Masto1493	Alouatta	seniculus		sequenced		-2.4376	-65.3656		PD_0423.1	Species35	Species23	Atelidae
+PD_0424	444	SMUF88	Alouatta	seniculus		sequenced		-3.3987	-64.045		PD_0424.1	Species35	Species23	Atelidae
+PD_0425	445	SMUF84	Alouatta	seniculus		sequenced		-3.3598	-64.7184		PD_0425.1	Species35	Species23	Atelidae
+PD_0426	475	FES61	Alouatta	puruensis		sequenced		-6.6937	-69.6906		PD_0426.1	Species35	Species23	Atelidae
+PD_0428	64	JPB83	Alouatta	seniculus		sequenced	PD_0297	-0.4715	-64.5886		PD_0428.1	Species35	Species23	Atelidae
+PD_0429	90	UFRO.M.509	Alouatta	puruensis		failed		-13.2413	-60.3435		PD_0429.1	Species36	Species24	Atelidae
+PD_0430	99	UFRO.M.577	Alouatta	puruensis		sequenced		-12.3002	-63.3027		PD_0430.1	Species36	Species24	Atelidae
+PD_0431	163	JT077	Ateles	chamek		sequenced		-3.8335	-67.4276		PD_0431.1	Species43	Species30	Atelidae
+PD_0432	195	FES25	Ateles	chamek		sequenced		-7.7116	-60.5968		PD_0432.1	Species44	Species30	Atelidae
+PD_0433	196	FES24	Ateles	chamek		sequenced		-7.4607	-60.6855		PD_0433.1	Species44	Species30	Atelidae
+PD_0434	120	Masto1383	Cacajao	calvus		sequenced		-2.4376	-65.3656		PD_0434.1	Species24	Species16	Pitheciidae
+PD_0435	162	JT003	Cacajao	calvus	rubicundus	sequenced		-3.2995	-67.3739		PD_0435.1	Species23	Species15	Pitheciidae
+PD_0436	164	JT078	Cacajao	calvus	rubicundus	sequenced		-3.3116	-67.5476		PD_0436.1	Species24	Species16	Pitheciidae
+PD_0437	167	JT088	Cacajao	calvus	rubicundus	sequenced		-3.7919	-67.4583		PD_0437.1	Species23	Species15	Pitheciidae
+PD_0174.1		KSTR201	Saguinus	geoffroyi				-3.227034	-60.059117	loc_NA_placeholder	PD_0174.1	Species72	Species40	Callitrichidae
+PD_0176.1		KSTR147	Saimiri	oerstedii				-3.227034	-60.059117	loc_NA_placeholder	PD_0176.1	Species68	Species38	Cebidae
