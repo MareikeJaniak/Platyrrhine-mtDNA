@@ -48,7 +48,7 @@ PD_0007	49	JPB142	Cebus	olivaceus		sequenced		-0.1175	-63.3542		PD_0007.1	Specie
 PD_0008	44	JPB134	Aotus	trivirgatus		sequenced		-0.8523	-63.4814		PD_0008.1	Species98	Species50	Aotidae
 PD_0009	65	JPB85	Saguinus	inustus		failed		-0.73	-65.33		PD_0009.1	Species78	Species43	Callitrichidae
 PD_0010	150	JT32	Cebuella	niveiventris		sequenced		-3.21801	-67.334296		PD_0010.1	Species88	Species47	Callitrichidae
-PD_0011	172	FES27	Sapajus	macrocephalus		sequenced	PD_0382	-2.9038	-68.3571		PD_0011.1	Species51	Species35	Cebidae
+PD_0011	172	FES27	Sapajus	macrocephalus		sequenced	PD_0382	-2.9038	-68.3571		PD_0011.1	Species51	Species33	Cebidae
 PD_0012	190	FES22	Saimiri	ustus		sequenced	PD_0369	-6.0221	-61.6319		PD_0012.1	Species64	Species38	Cebidae
 PD_0013	202	JAP738	Cebus	unicolor		sequenced		-1.7092	-69.1093		PD_0013.1	Species55	Species35	Cebidae
 PD_0014	450	JT037	Plecturocebus	cupreus		sequenced		-3.1395	-67.364		PD_0014.1	Species1	Species1	Pitheciidae
@@ -197,19 +197,19 @@ PD_0372	175	FES30	Saimiri	macrodon		sequenced		-2.9038	-68.3571		PD_0372.1	Speci
 PD_0373	50	JPB143	Saimiri	cassiquiarensis		sequenced		-0.7394	-63.1144		PD_0373.1	Species59	Species38	Cebidae
 PD_0374	82	UFRO.M.428	Saimiri	ustus		sequenced		-8.18	-64		PD_0374.1	Species62	Species38	Cebidae
 PD_0375	91	UFRO.M.510	Saimiri	ustus		sequenced		-13.3	-60.26		PD_0375.1	Species66	Species38	Cebidae
-PD_0376	102	RVR19	Sapajus	apella		sequenced		-10.0036	-56.0479		PD_0376.1	Species51	Species36	Cebidae
-PD_0377	281	TRO514	Sapajus	apella		sequenced		-1.4885	-56.7974		PD_0377.1	Species51	Species37	Cebidae
-PD_0378	335	PUR173	Sapajus	macrocephalus		sequenced		-5.7	-63.22		PD_0378.1	Species51	Species34	Cebidae
-PD_0379	191	FES08	Sapajus	macrocephalus		sequenced		-7.6131	-60.7922		PD_0379.1	Species51	Species38	Cebidae
-PD_0380	310	JAT19	Sapajus	apella		sequenced		-2.0607	-58.3846		PD_0380.1	Species51	Species39	Cebidae
-PD_0381	61	JPB80	Sapajus	macrocephalus		sequenced		-0.4782	-64.4113		PD_0381.1	Species51	Species40	Cebidae
-PD_0383	185	FES45	Sapajus	macrocephalus		sequenced		-2.8895	-68.3681		PD_0383.1	Species51	Species41	Cebidae
-PD_0384	298	SIS118	Sapajus	macrocephalus		sequenced		-0.6134	-64.9207		PD_0384.1	Species51	Species42	Cebidae
-PD_0385	338	PUR205	Sapajus	macrocephalus		sequenced		-4.9868	-62.9593		PD_0385.1	Species51	Species43	Cebidae
-PD_0386	193	HGLN06	Sapajus	macrocephalus		sequenced		-7.6013	-60.7593		PD_0386.1	Species51	Species44	Cebidae
-PD_0387	198	JAP749	Sapajus	macrocephalus		sequenced		-1.7195	-69.1155		PD_0387.1	Species51	Species45	Cebidae
-PD_0388	199	JAP715	Sapajus	macrocephalus		sequenced		-1.8412	-69.0318		PD_0388.1	Species51	Species46	Cebidae
-PD_0389	208	JAP709	Sapajus	macrocephalus		sequenced		-1.8554	-69.0282		PD_0389.1	Species51	Species47	Cebidae
+PD_0376	102	RVR19	Sapajus	apella		sequenced		-10.0036	-56.0479		PD_0376.1	Species51	Species33	Cebidae
+PD_0377	281	TRO514	Sapajus	apella		sequenced		-1.4885	-56.7974		PD_0377.1	Species51	Species33	Cebidae
+PD_0378	335	PUR173	Sapajus	macrocephalus		sequenced		-5.7	-63.22		PD_0378.1	Species51	Species33	Cebidae
+PD_0379	191	FES08	Sapajus	macrocephalus		sequenced		-7.6131	-60.7922		PD_0379.1	Species51	Species33	Cebidae
+PD_0380	310	JAT19	Sapajus	apella		sequenced		-2.0607	-58.3846		PD_0380.1	Species51	Species33	Cebidae
+PD_0381	61	JPB80	Sapajus	macrocephalus		sequenced		-0.4782	-64.4113		PD_0381.1	Species51	Species33	Cebidae
+PD_0383	185	FES45	Sapajus	macrocephalus		sequenced		-2.8895	-68.3681		PD_0383.1	Species51	Species33	Cebidae
+PD_0384	298	SIS118	Sapajus	macrocephalus		sequenced		-0.6134	-64.9207		PD_0384.1	Species51	Species33	Cebidae
+PD_0385	338	PUR205	Sapajus	macrocephalus		sequenced		-4.9868	-62.9593		PD_0385.1	Species51	Species33	Cebidae
+PD_0386	193	HGLN06	Sapajus	macrocephalus		sequenced		-7.6013	-60.7593		PD_0386.1	Species51	Species33	Cebidae
+PD_0387	198	JAP749	Sapajus	macrocephalus		sequenced		-1.7195	-69.1155		PD_0387.1	Species51	Species33	Cebidae
+PD_0388	199	JAP715	Sapajus	macrocephalus		sequenced		-1.8412	-69.0318		PD_0388.1	Species51	Species33	Cebidae
+PD_0389	208	JAP709	Sapajus	macrocephalus		sequenced		-1.8554	-69.0282		PD_0389.1	Species51	Species33	Cebidae
 PD_0402	314	SIS129	Cebus	albifrons		sequenced		-0.39	-64.78		PD_0402.1	Species58	Species37	Cebidae
 PD_0409	194	FES17	Chiropotes	albinasus		sequenced		-5.9841	-61.5374		PD_0409.1	Species29	Species19	Pitheciidae
 PD_0412	179	FES35	Alouatta	seniculus		sequenced		-2.9543	-68.4239		PD_0412.1	Species35	Species23	Atelidae
