@@ -247,13 +247,12 @@ Load packages
 library(phytools)
 library(viridis)
 library(mapdata)
-library(viridis)
 library(ape)
 ```
 
 Read in beast tree
 ```{r}
-beast_tr <- treeio::read.beast("./mtDNA.chain1chain2.combo.MCC.tree")
+beast_tr <- treeio::read.beast("../Analyses/BEAST2/mtDNA.chain1chain2.combo.MCC.tree")
 tr <- beast_tr@phylo
 ```
 
@@ -269,6 +268,8 @@ Plot all (too many):
 ```{r}
 phylo.to.map(tr, coord, rotate=TRUE, ylim=c(-15,15), xlim=c(-90,-50), direction="rightwards")
 ```
+
+#### Single rate mPTP
 
 #### Alouatta only:
 ```{r}
@@ -300,7 +301,7 @@ obj <- phylo.to.map(tr_Alouatta, coord_Alouatta,
 plot(obj, direction = "rightwards",
      ylim=c(-15,3), 
      xlim=c(-74,-52),
-     ftype = "off",
+#     ftype = "off",
      asp=1,
      pts = FALSE, 
      colors = cols, 
@@ -347,7 +348,7 @@ obj <- phylo.to.map(tr_Saimiri, coord_Saimiri,
 plot(obj, direction = "rightwards",
      ylim=c(-15,3), 
      xlim=c(-74,-52), 
- #    ftype = "off",
+     ftype = "off",
      asp=1,
      pts = FALSE, 
      colors = cols, 
@@ -378,9 +379,9 @@ tr_Cebinae <- drop.tip(tr_Cebinae, c("NC_050883.1_Sapajus_flavius", "NC_021961.1
 
 Set colors based on mPTP species assignment
 ```{r}
-y = viridis(n=length(unique(Cebinae$V13)), option = "plasma", end = 0.85)
-x.lvl <- unique(Cebinae$V13)
-cols<-setNames(y[match(Cebinae$V13, x.lvl)], Cebinae$V12)
+y = viridis(n=length(unique(Cebinae$V14)), option = "plasma", end = 0.85)
+x.lvl <- unique(Cebinae$V14)
+cols<-setNames(y[match(Cebinae$V14, x.lvl)], Cebinae$V12)
 ```
 
 Plot Cebinae tree
@@ -712,4 +713,446 @@ nodelabels(round(castor::get_tree_span(tr_Callitrichidae)$max_distance, digits =
            frame = "none", 
            adj = -0.3)
 nodelabels(pch = 23, node = c(25, 30, 22), cex = 2)
+```
+
+#### Multi-rate mPTP
+
+#### Alouatta only:
+```{r}
+Alouatta <- subset(loc, loc$V4 == "Alouatta")
+Alouatta <- subset(Alouatta, Alouatta$V11 != "loc_NA_placeholder")
+Alouatta <- subset(Alouatta, Alouatta$V11 != "placeholder")
+coord_Alouatta <- as.matrix(Alouatta[9:10])
+rownames(coord_Alouatta)<- as.vector(Alouatta$V12)
+```
+
+Drop tips:
+```{r}
+tr_Alouatta <- keep.tip(tr, Alouatta$V12)
+tr_Alouatta <- drop.tip(tr_Alouatta, c("PD_0175.1", "KY202428.1_Alouatta_guariba","NC_027825.1_Alouatta_seniculus", "NC_021938.1_Alouatta_caraya"))
+```
+
+Set colors based on mPTP species assignment
+```{r}
+y = viridis(n=length(unique(Alouatta$V14)), option = "plasma")
+x.lvl <- unique(Alouatta$V14)
+cols<-setNames(y[match(Alouatta$V14, x.lvl)], Alouatta$V12)
+```
+
+Plot Alouatta tree
+```{r}
+obj <- phylo.to.map(tr_Alouatta, coord_Alouatta,
+                    database = "worldHires", regions = "Brazil", 
+                    plot = FALSE, direction = "rightwards")
+plot(obj, direction = "rightwards",
+     ylim=c(-15,3), 
+     xlim=c(-74,-52),
+     ftype = "off",
+     asp=1,
+     pts = FALSE, 
+     colors = cols, 
+     cex.points=c(0,1), 
+     lwd=c(1.5,1))
+plot(brazil_rivers_spdf, add=TRUE, col = "steelblue")
+text(x = -90.5, y = 5, labels = "(A) Alouatta", font = 4, col = "black", cex = 1.5, pos = 4)
+nodelabels(round(castor::get_tree_span(tr_Alouatta)$max_distance, digits = 2), 
+           node = 37,
+           frame = "none", 
+           adj = -0.3)
+#plot(javari_connect_spdf, col = "blue", add = TRUE)
+#plot(javari_spdf, col = "blue", add = TRUE)
+#plot(jutai_spdf, col = "blue", add = TRUE)
+#map("rivers", add=TRUE, col = "blue")
+```
+
+#### Saimiri only:
+```{r}
+Saimiri <- subset(loc, loc$V4 == "Saimiri")
+Saimiri <- subset(Saimiri, Saimiri$V11 != "loc_NA_placeholder")
+coord_Saimiri <- as.matrix(Saimiri[9:10])
+rownames(coord_Saimiri)<- as.vector(Saimiri$V12)
+```
+
+Drop tips:
+```{r}
+tr_Saimiri <- keep.tip(tr, Saimiri$V12)
+tr_Saimiri <- drop.tip(tr_Saimiri, c("NC_012775.1_Saimiri_sciureus", "NC_021966.1_Saimiri_boliviensis"))
+```
+
+Set colors based on mPTP species assignment
+```{r}
+y = viridis(n=length(unique(Saimiri$V14)), option = "plasma")
+x.lvl <- unique(Saimiri$V14)
+cols<-setNames(y[match(Saimiri$V14, x.lvl)], Saimiri$V12)
+```
+
+Plot Saimiri tree
+```{r}
+obj <- phylo.to.map(tr_Saimiri, coord_Saimiri, 
+                    database = "worldHires", regions = "Brazil", 
+                    plot = FALSE, direction = "rightwards")
+plot(obj, direction = "rightwards",
+     ylim=c(-15,3), 
+     xlim=c(-74,-52), 
+     ftype = "off",
+     asp=1,
+     pts = FALSE, 
+     colors = cols, 
+     cex.points=c(0,1), 
+     lwd=c(1.5,1))
+plot(brazil_rivers_spdf, add=TRUE, col = "steelblue")
+text(x = -90.5, y = 5, labels = "(B) Saimiri", font = 4, col = "black", cex = 1.5, pos = 4)
+nodelabels(round(castor::get_tree_span(tr_Saimiri)$max_distance, digits = 2), 
+           node = 26,
+           frame = "none", 
+           adj = -0.3)
+```
+
+#### Cebinae only:
+```{r}
+Cebinae <- subset(loc, loc$V4 == "Cebus" | loc$V4 == "Sapajus")
+Cebinae <- subset(Cebinae, Cebinae$V11 != "loc_NA_placeholder")
+coord_Cebinae <- as.matrix(Cebinae[9:10])
+rownames(coord_Cebinae)<- as.vector(Cebinae$V12)
+```
+
+Drop tips:
+```{r}
+tr_Cebinae <- keep.tip(tr, Cebinae$V12)
+tr_Cebinae <- drop.tip(tr_Cebinae, c("NC_050883.1_Sapajus_flavius", "NC_021961.1_Cebus_xanthosternos", "NC_002763.1_Cebus_albifrons", "PD_0077.1"))
+```
+
+Set colors based on mPTP species assignment
+```{r}
+y = viridis(n=length(unique(Cebinae$V14)), option = "plasma", end = 0.85)
+x.lvl <- unique(Cebinae$V14)
+cols<-setNames(y[match(Cebinae$V14, x.lvl)], Cebinae$V12)
+```
+
+Plot Cebinae tree
+```{r}
+obj <- phylo.to.map(tr_Cebinae, coord_Cebinae, 
+                    database = "worldHires", regions = "Brazil", 
+                    plot = FALSE, direction = "rightwards")
+plot(obj, direction = "rightwards",
+     ylim=c(-15,3), 
+     xlim=c(-74,-52), 
+     ftype = "off",
+     asp=1,
+     pts = FALSE, 
+     colors = cols, 
+     cex.points=c(0,1), 
+     lwd=c(1.5,1))
+plot(brazil_rivers_spdf, add=TRUE, col = "steelblue")
+text(x = -90.5, y = 5, labels = "(C) Cebinae", font = 2, col = "black", cex = 1.5, pos = 4)
+nodelabels(round(castor::get_tree_span(tr_Cebinae)$max_distance, digits = 2), 
+           node = 23,
+           frame = "none", 
+           adj = -0.3)
+nodelabels(pch = 22, node = 38, cex = 2)
+```
+
+#### Cheracebus only:
+```{r}
+Cheracebus <- subset(loc, loc$V4 == "Cheracebus")
+coord_Cheracebus <- as.matrix(Cheracebus[9:10])
+rownames(coord_Cheracebus)<- as.vector(Cheracebus$V12)
+```
+
+Drop tips:
+```{r}
+tr_Cheracebus <- keep.tip(tr, Cheracebus$V12)
+```
+
+Set colors based on mPTP species assignment
+```{r}
+y = viridis(n=length(unique(Cheracebus$V14)), option = "plasma")
+x.lvl <- unique(Cheracebus$V14)
+cols<-setNames(y[match(Cheracebus$V14, x.lvl)], Cheracebus$V12)
+```
+
+Plot Cheracebus tree
+```{r}
+obj <- phylo.to.map(tr_Cheracebus, coord_Cheracebus, 
+                    database = "worldHires", regions = "Brazil", 
+                    plot = FALSE, direction = "rightwards")
+plot(obj, direction = "rightwards",
+     ylim=c(-15,3), 
+     xlim=c(-74,-52), 
+     ftype = "off",
+     asp=1,
+     pts = FALSE, 
+     colors = cols, 
+     cex.points=c(0,1), 
+     lwd=c(1.5,1))
+plot(brazil_rivers_spdf, add=TRUE, col = "steelblue")
+text(x = -90.5, y = 5, labels = "(D) Cheracebus", font = 4, col = "black", cex = 1.5, pos = 4)
+nodelabels(round(castor::get_tree_span(tr_Cheracebus)$max_distance, digits = 2), 
+           node = 16,
+           frame = "none", 
+           adj = -0.3)
+nodelabels(pch = 22, node = 24, cex = 2)
+nodelabels(pch = 23, node = 17, cex = 2)
+```
+
+#### Plecturocebus only:
+```{r}
+Plecturocebus <- subset(loc, loc$V4 == "Plecturocebus")
+coord_Plecturocebus <- as.matrix(Plecturocebus[9:10])
+rownames(coord_Plecturocebus)<- as.vector(Plecturocebus$V12)
+```
+
+Drop tips:
+```{r}
+tr_Plecturocebus <- keep.tip(tr, Plecturocebus$V12)
+```
+
+Set colors based on mPTP species assignment
+```{r}
+y = viridis(n=length(unique(Plecturocebus$V14)), option = "plasma")
+x.lvl <- unique(Plecturocebus$V14)
+cols<-setNames(y[match(Plecturocebus$V14, x.lvl)], Plecturocebus$V12)
+```
+
+Plot Plecturocebus tree
+```{r}
+obj <- phylo.to.map(tr_Plecturocebus, coord_Plecturocebus, 
+                    database = "worldHires", regions = "Brazil", 
+                    plot = FALSE, direction = "downwards")
+plot(obj, direction = "rightwards",
+     ylim=c(-15,3), 
+     xlim=c(-74,-52), 
+     ftype = "off",
+     asp=1,
+     pts = FALSE, 
+     colors = cols, 
+     cex.points=c(0,1), 
+     lwd=c(1.5,1))
+plot(brazil_rivers_spdf, add=TRUE, col = "steelblue")
+text(x = -90.5, y = 5, labels = "(E) Plecturocebus", font = 4, col = "black", cex = 1.5, pos = 4)
+nodelabels(round(castor::get_tree_span(tr_Plecturocebus)$max_distance, digits = 2), 
+           node = 23,
+           frame = "none", 
+           adj = -0.3)
+nodelabels(pch = 24, node = 33, cex = 2)
+```
+
+#### Cacajao only:
+```{r}
+Cacajao <- subset(loc, loc$V4 == "Cacajao")
+Cacajao <- subset(Cacajao, Cacajao$V11 != "loc_NA_placeholder")
+coord_Cacajao <- as.matrix(Cacajao[9:10])
+rownames(coord_Cacajao)<- as.vector(Cacajao$V12)
+```
+
+Drop tips:
+```{r}
+tr_Cacajao <- keep.tip(tr, Cacajao$V12)
+tr_Cacajao <- drop.tip(tr_Cacajao, "NC_021967.1_Cacajao_calvus", "PD_0306.1")
+```
+
+Set colors based on mPTP species assignment
+```{r}
+y = viridis(n=length(unique(Cacajao$V14)), option = "plasma")
+x.lvl <- unique(Cacajao$V14)
+cols<-setNames(y[match(Cacajao$V14, x.lvl)], Cacajao$V12)
+```
+
+Plot Cacajao tree
+```{r}
+obj <- phylo.to.map(tr_Cacajao, coord_Cacajao, 
+                    database = "worldHires", regions = "Brazil",
+                    plot = FALSE, direction = "rightwards")
+plot(obj, direction = "rightwards",
+     ylim=c(-15,3), 
+     xlim=c(-74,-52), 
+     ftype = "off",
+     asp=1,
+     pts = FALSE, 
+     colors = cols, 
+     cex.points=c(0,1), 
+     lwd=c(1.5,1))
+plot(brazil_rivers_spdf, add=TRUE, col = "steelblue")
+text(x = -90.5, y = 5, labels = "(F) Cacajao", font = 4, col = "black", cex = 1.5, pos = 4)
+nodelabels(round(castor::get_tree_span(tr_Cacajao)$max_distance, digits = 2), 
+           node = 26,
+           frame = "none", 
+           adj = -0.3)
+nodelabels(pch = 22, node = 44, cex = 2)
+```
+
+#### Pithecia only:
+```{r}
+Pithecia <- subset(loc, loc$V4 == "Pithecia")
+Pithecia <- subset(Pithecia, Pithecia$V11 != "loc_NA_placeholder")
+coord_Pithecia <- as.matrix(Pithecia[9:10])
+rownames(coord_Pithecia)<- as.vector(Pithecia$V12)
+```
+
+Drop tips:
+```{r}
+tr_Pithecia <- keep.tip(tr, Pithecia$V12)
+tr_Pithecia <- drop.tip(tr_Pithecia, "PD_0345.1")
+```
+
+Set colors based on mPTP species assignment
+```{r}
+y = viridis(n=length(unique(Pithecia$V14)), option = "plasma")
+x.lvl <- unique(Pithecia$V14)
+cols<-setNames(y[match(Pithecia$V14, x.lvl)], Pithecia$V12)
+```
+
+Plot Pithecia tree
+```{r}
+obj <- phylo.to.map(tr_Pithecia, coord_Pithecia, 
+                    database = "worldHires", regions = "Brazil",
+                    plot = FALSE, direction = "rightwards")
+plot(obj, direction = "rightwards",
+     ylim=c(-15,3), 
+     xlim=c(-74,-52), 
+     ftype = "off",
+     asp=1,
+     pts = FALSE, 
+     colors = cols, 
+     cex.points=c(0,1), 
+     lwd=c(1.5,1))
+plot(brazil_rivers_spdf, add=TRUE, col = "steelblue")
+text(x = -90.5, y = 5, labels = "(G) Pithecia", font = 4, col = "black", cex = 1.5, pos = 4)
+nodelabels(round(castor::get_tree_span(tr_Pithecia)$max_distance, digits = 2), 
+           node = 10,
+           frame = "none", 
+           adj = -0.3)
+```
+
+#### Ateles only:
+```{r}
+Ateles <- subset(loc, loc$V4 == "Ateles")
+Ateles <- subset(Ateles, Ateles$V11 != "placeholder")
+Ateles <- subset(Ateles, Ateles$V11 != "loc_NA_placeholder")
+coord_Ateles <- as.matrix(Ateles[9:10])
+rownames(coord_Ateles)<- as.vector(Ateles$V12)
+```
+
+Drop tips:
+```{r}
+tr_Ateles <- keep.tip(tr, Ateles$V12)
+tr_Ateles <- drop.tip(tr_Ateles, c("PD_0177.1", "NC_019800.1_Ateles_belzebuth"))
+```
+
+Set colors based on mPTP species assignment
+```{r}
+y = viridis(n=length(unique(Ateles$V14)), option = "plasma")
+x.lvl <- unique(Ateles$V14)
+cols<-setNames(y[match(Ateles$V14, x.lvl)], Ateles$V12)
+```
+
+Plot Ateles tree
+```{r}
+obj <- phylo.to.map(tr_Ateles, coord_Ateles, 
+                    database = "worldHires", regions = "Brazil",
+                    plot = FALSE, direction = "rightwards")
+plot(obj, direction = "rightwards",
+     ylim=c(-15,3), 
+     xlim=c(-74,-52), 
+     ftype = "off",
+     asp=1,
+     pts = FALSE, 
+     colors = cols, 
+     cex.points=c(0,1), 
+     lwd=c(1.5,1))
+plot(brazil_rivers_spdf, add=TRUE, col = "steelblue")
+text(x = -90.5, y = 5, labels = "(H) Ateles", font = 4, col = "black", cex = 1.5, pos = 4)
+nodelabels(round(castor::get_tree_span(tr_Ateles)$max_distance, digits = 2), 
+           node = 16,
+           frame = "none", 
+           adj = -0.3)
+```
+
+#### Chiropotes only:
+```{r}
+Chiropotes <- subset(loc, loc$V4 == "Chiropotes")
+Chiropotes <- subset(Chiropotes, Chiropotes$V11 != "loc_NA_placeholder")
+coord_Chiropotes <- as.matrix(Chiropotes[9:10])
+rownames(coord_Chiropotes)<- as.vector(Chiropotes$V12)
+```
+
+Drop tips:
+```{r}
+tr_Chiropotes <- keep.tip(tr, Chiropotes$V12)
+tr_Chiropotes <- drop.tip(tr_Chiropotes, c("NC_024629.1_Chiropotes_israelita", "NC_021946.1_Chiropotes_albinasus"))
+```
+
+Set colors based on mPTP species assignment
+```{r}
+y = viridis(n=length(unique(Chiropotes$V14)), option = "plasma")
+x.lvl <- unique(Chiropotes$V14)
+cols<-setNames(y[match(Chiropotes$V14, x.lvl)], Chiropotes$V12)
+```
+
+Plot Chiropotes tree
+```{r}
+obj <- phylo.to.map(tr_Chiropotes, coord_Chiropotes, 
+                    database = "worldHires", regions = "Brazil",
+                    plot = FALSE, direction = "rightwards")
+plot(obj, direction = "rightwards",
+     ylim=c(-15,3), 
+     xlim=c(-74,-52), 
+     ftype = "off",
+     asp=1,
+     pts = FALSE, 
+     colors = cols, 
+     cex.points=c(0,1), 
+     lwd=c(1.5,1))
+plot(brazil_rivers_spdf, add=TRUE, col = "steelblue")
+text(x = -90.5, y = 5, labels = "(I) Chiropotes", font = 4, col = "black", cex = 1.5, pos = 4)
+nodelabels(round(castor::get_tree_span(tr_Chiropotes)$max_distance, digits = 2), 
+           node = 13,
+           frame = "none", 
+           adj = -0.3)
+nodelabels(pch = 23, node = 13, cex = 2)
+```
+
+
+#### Callitrichidae only:
+```{r}
+Callitrichidae <- subset(loc, loc$V4 == "Saguinus" | loc$V4 == "Callithrix" | loc$V4 == "Cebuella" | loc$V4 == "Mico" | loc$V4 == "Leontocebus" | loc$V4 == "Callibela")
+Callitrichidae <- subset(Callitrichidae, Callitrichidae$V11 != "loc_NA_placeholder")
+coord_Callitrichidae <- as.matrix(Callitrichidae[9:10])
+rownames(coord_Callitrichidae)<- as.vector(Callitrichidae$V12)
+```
+
+Drop tips:
+```{r}
+tr_Callitrichidae <- keep.tip(tr, Callitrichidae$V12)
+tr_Callitrichidae <- drop.tip(tr_Callitrichidae, c("NC_021941.1_Callithrix_geoffroyi",
+"NC_021942.1_Callithrix_pygmaea", "NC_025586.1_Callithrix_jacchus", "NC_027658.1_Callithrix_kuhlii", "NC_030788.1_Callithrix_penicillata_isolate_cpe001","NC_050682.1_Callithrix_aurita"))
+```
+
+Set colors based on mPTP species assignment
+```{r}
+y = viridis(n=length(unique(Callitrichidae$V14)), option = "plasma")
+x.lvl <- unique(Callitrichidae$V14)
+cols<-setNames(y[match(Callitrichidae$V14, x.lvl)], Callitrichidae$V12)
+```
+
+Plot Callitrichidae tree
+```{r}
+obj <- phylo.to.map(tr_Callitrichidae, coord_Callitrichidae, 
+                    database = "worldHires", regions = "Brazil",
+                    plot = FALSE, direction = "rightwards")
+plot(obj, direction = "rightwards",
+     ylim=c(-15,3), 
+     xlim=c(-74,-52), 
+     ftype = "off",
+     asp=1,
+     pts = FALSE, 
+     colors = cols, 
+     cex.points=c(0,1), 
+     lwd=c(1.5,1))
+plot(brazil_rivers_spdf, add=TRUE, col = "steelblue")
+text(x = -90.5, y = 5, labels = "(J) Callitrichidae", font = 2, col = "black", cex = 1.5, pos = 4)
+nodelabels(round(castor::get_tree_span(tr_Callitrichidae)$max_distance, digits = 2), 
+           node = 17,
+           frame = "none", 
+           adj = -0.3)
 ```

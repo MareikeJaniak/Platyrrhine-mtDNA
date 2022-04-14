@@ -167,7 +167,7 @@ PD_0341	457	JT075	Plecturocebus	cupreus		sequenced		-3.7906	-67.4697		PD_0341.1	
 PD_0342	78	UFRO.M.403	Plecturocebus	dubius		sequenced		-8.770107	-64.010055		PD_0342.1	Species3	Species2	Pitheciidae
 PD_0343	93	UFRO.M.544	Plecturocebus	dubius		sequenced		-8.51	-64.42		PD_0343.1	Species3	Species2	Pitheciidae
 PD_0344	252	TAP351420	Plecturocebus	moloch		sequenced		-3.3564	-55.206		PD_0344.1	Species8	Species4	Pitheciidae
-PD_0345	249?	TAP295_334?	Pithecia	sp		sequenced		-3.3918	-55.2203		PD_0345.1	Species20	Species12	Pitheciidae
+PD_0345	249?	TAP295_334?	Pithecia	sp		sequenced		-3.3918	-55.2203	loc_NA_placeholder	PD_0345.1	Species20	Species12	Pitheciidae
 PD_0346	352	JPB165	Saguinus	bicolor		sequenced		-2.916	-59.9947		PD_0346.1	Species75	Species42	Callitrichidae
 PD_0347	325	PUR186	Leontocebus	fuscicollis	weddelli	sequenced		-6.3461	-63.4236		PD_0347.1	Species81	Species44	Callitrichidae
 PD_0348	334	PUR167	Saguinus	labiatus	rufiventer	sequenced		-6.2256	-63.4256		PD_0348.1	Species76	Species43	Callitrichidae
