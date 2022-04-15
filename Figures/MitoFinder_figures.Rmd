@@ -1,0 +1,223 @@
+---
+title: "MitoFinder figures"
+author: "Mareike"
+date: "10/13/2020"
+output: html_document
+---
+
+Scripts for plotting how well MitoFinder worked
+
+Load packages
+```{r}
+library(ggplot2)
+library(tidyr)
+library(ggpubr)
+library(viridis)
+library(cowplot)
+```
+
+Import results file
+```{r}
+mito_df <- read.delim("../MitoFinder/output/mitoFinder_results_final_length_cov_MolEcol.txt", header = TRUE, sep = "\t")
+
+#remove sequences from samples that were sequenced twice
+mito_df <- subset(mito_df, mito_df$Sample != "PD_0324" & mito_df$Sample != "PD_0382" & mito_df$Sample != "PD_0369" & mito_df$Sample != "PD_0297")
+
+#mito_df <- mito_df %>% drop_na()
+mito_df$Assembler <- "metaSPAdes"
+mito_df$Annotator <- "MiTFi"
+```
+
+Import results file for samples with multiple contigs
+```{r}
+multi_df <- read.delim("../MitoFinder/output/mitoFinder_results_multiple_contigs_all.txt", header = TRUE, sep = "\t")
+
+#remove sequences from samples that were sequenced twice
+multi_df <- subset(multi_df, multi_df$Sample != "PD_0324" & multi_df$Sample != "PD_0382" & multi_df$Sample != "PD_0369" & multi_df$Sample != "PD_0297")
+```
+
+Stats
+```{r}
+summary(subset(mito_df, mito_df$Sample != "PD_0084"))
+summary(mito_df)
+summary(subset(multi_df, multi_df$ContigNum != "contig_1"))
+summary(subset(multi_df, multi_df$ContigNum == "contig_1"))
+```
+
+
+Plot number of contigs found:
+
+```{r}
+p_contigs <- ggplot(mito_df, aes(y =ContigsFound, x= Assembler, fill = Assembler)) + 
+  theme_classic() +
+#  geom_violin(alpha=0.7) +
+  geom_jitter(aes(Assembler), height = 0, width = 0.2, pch = 16, alpha = 0.6) +
+  geom_violin(alpha = 0.4, trim = FALSE) +
+#  geom_beeswarm(alpha = 0.5, side = -1L) +
+  xlab(NULL) +
+  ylab("Number of contigs found") +
+  scale_fill_manual(values = "#0D0887FF") +
+  scale_color_manual(values = "#0D0887FF") +
+  guides(fill = "none", color = "none") +
+  scale_y_continuous(breaks = seq(0, 6, len = 7)) +
+#  ggtitle("Contigs") +
+  theme(plot.title = element_text(face = "bold"),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank())
+
+p_contigs
+```
+
+Plot length of final contig:
+```{r}
+p_length <- ggplot(mito_df, aes(x = Assembler, y = LengthFinalContig/1000, fill = Assembler)) +
+  geom_violin(alpha = 0.5,trim = FALSE) +
+  geom_jitter(height = 0, pch = 16, alpha = 0.6) + 
+  scale_fill_manual(values = "#6A00A8FF") +
+  guides(fill = "none") +
+  xlab(NULL) +
+  ylab("Length of final contig (kb)") +
+  theme_classic() +
+#  ggtitle("Length") +
+  ylim(15.3, 16.9) +
+  theme(plot.title = element_text(face = "bold"),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank())
+
+p_length
+```
+
+Plot number of genes annotated:
+```{r}
+p_genes <- ggplot(mito_df, aes(x = Annotator, y = GenesAnnotated, fill = Annotator)) +
+#  geom_violin(alpha = 0.5) +
+  geom_jitter(height = 0, pch = 16, alpha = 0.6) +
+  guides(fill = F) +
+  xlab(NULL) +
+  ylab("Number of genes annotated") +
+  ylim(0,17) +
+  theme_classic() +
+#  ggtitle("Genes") +
+  theme(plot.title = element_text(face = "bold"),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank())
+
+p_genes
+```
+
+Plot length of contigs when multiple contigs found:
+```{r}
+p_contigsLength <- ggplot(multi_df, aes(x = ContigNum, y = ContigLength/1000, fill = ContigNum)) +
+  geom_boxplot(alpha = 0.5, outlier.shape = NA) +
+  geom_jitter(width = 0.1, pch = 16, alpha = 0.6) +
+  theme_classic() +
+  scale_fill_manual(values = viridis(6, option = "C")) +
+  guides(fill = "none") +
+  xlab("Contig") +
+  ylab("Length (kb)") +
+#  ggtitle("Length") +
+  scale_x_discrete(labels = c("1","2", "3", "4", "5", "6")) +
+  theme(plot.title = element_text(face = "bold"))
+
+p_contigsLength
+```
+Plot coverage of contigs when multiple contigs found:
+```{r}
+p_contigsCov <- ggplot(multi_df, aes(x = ContigNum, y = ContigCov, fill = ContigNum)) +
+  geom_boxplot(alpha = 0.5, outlier.shape = NA) +
+  geom_jitter(width = 0.1, pch = 16, alpha = 0.6) +
+  theme_classic() +
+  scale_fill_manual(values = viridis(6, option = "C")) +
+  guides(fill = "none") +
+  xlab("Contig") +
+  ylab("Coverage (x)") +
+  ylim(0, 1600) +
+#  ggtitle("Coverage") +
+  scale_x_discrete(labels = c("1","2", "3", "4", "5", "6")) +
+  theme(plot.title = element_text(face = "bold"))
+
+p_contigsCov
+```
+
+Arrange:
+```{r}
+#p_combo <- ggarrange(p_contigs, p_length, p_genes, nrow = 1, labels = c("(A)", "(B)", "(C)"))
+#p_contigsCombo <- ggarrange(p_contigsLength, p_contigsCov, nrow = 1, labels = c("(D)", "(E)"))
+
+#p_comboAll <- ggarrange(p_combo, p_contigsCombo, nrow = 2, align = "v")
+
+p_combo <- plot_grid(p_contigs, p_length, p_contigsLength, p_contigsCov, nrow = 2, ncol = 2, labels = c("(A)", "(B)", "(C)", "(D)"), align = "v")
+
+#save
+ggsave(plot = p_combo, file = "../MitoFinder/Figures/results_MitoFinder_13Apr2022.pdf", height = 6, width = 8, useDingbats= FALSE)
+
+#ggsave(plot = p_contigsCombo, file = "../MitoFinder/Figures/results_MitoFinder_contigs_14Sep2021.pdf", height = 4, width = 9, useDingbats= FALSE)
+```
+
+Tree:
+Built with RaxML after running PartitionFinder2
+```{r}
+library(ape)
+library(ggtree)
+library(fuzzyjoin)
+library(stringr)
+library(phangorn)
+```
+
+```{r}
+mt_tr <- read.tree("../RaxML/RAxML_bipartitionsBranchLabels.mt_3Nov2020_out")
+mt_tr <- read.tree("../RaxML/RAxML_bipartitions.mt_17Nov2020.out")
+mt_tr2 <- read.tree("../RaxML/RAxML_bipartitions.mt_4Nov2020_out")
+rt_tr <- read.tree("../RaxML/rooted_RAxML_bipartitions.mt_17Nov2020.out")
+```
+
+Temp tree for geneSort code:
+Drop tips not used for UCEs
+```{r}
+tips <- c("PD_0324", "PD_0297", "PD_0369", "PD_0305", "PD_0382", "Soer_Melin", "Sgeo_Melin")
+rt_tr_red <- drop.tip(rt_tr, tip = tips)
+```
+
+Add tips (Acar and outgroup)
+```{r}
+write.tree(rt_tr_red, "../PHYLUCE/tmp_Species_tree_geneSort.nwk")
+```
+
+
+```{r}
+tip_df <- data.frame(tips = mt_tr$tip.label)
+batch1_df <- read.delim("../sample_selection/sample_lists/PGDP_samples_b1_JB.txt")
+
+tree_df <- tip_df %>% fuzzy_inner_join(batch1_df, by = c("tips" = "PGDP_ID"), match_fun = str_detect)
+
+tree_df <- tree_df[,1:6]
+tree_df$tiplab <- paste(tree_df$Genus,tree_df$Species)
+
+#mt_tr2 <- root(mt_tr2, outgroup = "hs_mt", resolve.root = TRUE)
+mt_tr2 <- midpoint(mt_tr, node.labels = "support")
+```
+
+Plot:
+```{r}
+p_mt_tr <- ggtree(mt_tr) %<+% tree_df + geom_tiplab(size = 2.5, aes(label = tiplab)) + 
+#  geom_nodelab(label = mt_tr$node.label, size = 3, nudge_x = -0.02, nudge_y = 0.6) + 
+  xlim(0,0.5) + geom_treescale(); p_mt_tr
+
+                                                    
+#ggsave("../RaxML/mt_tree_species_4Nov2020.pdf", plot = p_mt_tr, height = 10, width = 10, useDingbats = FALSE)
+```
+
+```{r}
+p_mt_tr2 <- ggtree(mt_tr2) %<+% tree_df + geom_tiplab(size = 2.5, aes(label = paste0('italic(',Genus, ')~', 'italic(',Species, ')~', PGDP_ID)), parse=T) + #geom_nodelab(label = mt_tr2$node.label, size = 3, nudge_x = -0.015, nudge_y = 0.6) + 
+  xlim(0,0.3)
+
+#ggsave("../RaxML/mt_tree_root_17Nov2020.pdf", plot = p_mt_tr2, height = 20, width = 10, useDingbats = FALSE)
+```
+
+Circular:
+```{r}
+p_mt_trcirc <- ggtree(mt_tr2, layout="circular") %<+% tree_df + geom_tiplab(size = 2.5, aes(label = Genus)); p_mt_trcirc
+```
+
+
+
