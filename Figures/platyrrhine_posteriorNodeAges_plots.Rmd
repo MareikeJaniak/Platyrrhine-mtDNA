@@ -1,0 +1,251 @@
+---
+title: "posterior node ages"
+author: "Mareike"
+date: "4/15/2022"
+output: html_document
+---
+
+#### Node age distributions from BEAST2 trees
+
+Load packages
+```{r}
+library(ape)
+library(ggplot2)
+library(ggridges)
+library(reshape2)
+```
+
+
+Read in BEAST2 posterior trees and remove burn-in
+```{r}
+#using trees file from multiple runs combined in LogCombiner, burn in already removed
+#file too large for GitHub, download from FigShare repository
+post.burnin.trees <- read.nexus("../Analyses/BEAST2/mtDNA.chain1chain2.combo.posterior.trees.tree")
+```
+
+Get branching times for nodes in each tree
+```{r}
+tmp <- lapply(post.burnin.trees, branching.times)
+
+times_matrix <- matrix(unlist(tmp), nrow = length(tmp), byrow = TRUE)
+```
+
+Node numbers change in the posterior trees, so getting correct age requires finding node number for each posterior tree first.
+
+Create dataframes with appropriate nodes for each river
+
+#### AMAZON:
+```{r}
+tips <- c("PD_0009.1", "PD_0351.1", "PD_0348.1")
+posterior.age = NULL
+MRCA = NULL
+for (i in 1:length(post.burnin.trees)) {
+  MRCA[i] <- getMRCA(post.burnin.trees[[i]], tips)
+  posterior.age[i] <- times_matrix[i, (MRCA[i]-244)]
+}
+posterior.age.Saguinus <- posterior.age
+```
+
+```{r}
+tips <- c("PD_0309.1", "PD_0287.1", "PD_0010.1")
+posterior.age = NULL
+MRCA = NULL
+for (i in 1:length(post.burnin.trees)) {
+  MRCA[i] <- getMRCA(post.burnin.trees[[i]], tips)
+  posterior.age[i] <- times_matrix[i, (MRCA[i]-244)]
+}
+posterior.age.Cebuella <- posterior.age
+```
+
+```{r}
+tips <- c("PD_0347.1", "PD_0017.1", "PD_0352.1")
+posterior.age = NULL
+MRCA = NULL
+for (i in 1:length(post.burnin.trees)) {
+  MRCA[i] <- getMRCA(post.burnin.trees[[i]], tips)
+  posterior.age[i] <- times_matrix[i, (MRCA[i]-244)]
+}
+posterior.age.Leontocebus <- posterior.age
+```
+
+```{r}
+tips <- c("PD_0004.1", "PD_0138.1", "PD_0139.1", "PD_0300.1", "PD_0301.1", "PD_0302.1", "PD_0303.1", "PD_0431.1", "PD_0432.1", "PD_0433.1")
+posterior.age = NULL
+MRCA = NULL
+for (i in 1:length(post.burnin.trees)) {
+  MRCA[i] <- getMRCA(post.burnin.trees[[i]], tips)
+  posterior.age[i] <- times_matrix[i, (MRCA[i]-244)]
+}
+posterior.age.Ateles <- posterior.age
+```
+
+```{r}
+tips <- c("PD_0006.1", "PD_0081.1", "PD_0082.1", "PD_0142.1", "PD_0323.1", "PD_0325.1", "PD_0326.1", "PD_0327.1", "PD_0328.1", "PD_0329.1", "PD_0330.1", "PD_0409.1")
+posterior.age = NULL
+MRCA = NULL
+for (i in 1:length(post.burnin.trees)) {
+  MRCA[i] <- getMRCA(post.burnin.trees[[i]], tips)
+  posterior.age[i] <- times_matrix[i, (MRCA[i]-244)]
+}
+posterior.age.Chiropotes <- posterior.age
+```
+
+```{r}
+tips <- c("PD_0312.1", "PD_0313.1", "PD_0314.1", "PD_0288.1", "PD_0285.1", "PD_0322.1", "PD_0284.1")
+posterior.age = NULL
+MRCA = NULL
+for (i in 1:length(post.burnin.trees)) {
+  MRCA[i] <- getMRCA(post.burnin.trees[[i]], tips)
+  posterior.age[i] <- times_matrix[i, (MRCA[i]-244)]
+}
+posterior.age.Callicebinae <- posterior.age
+```
+
+```{r}
+tips <- c("PD_0012.1", "PD_0364.1")
+posterior.age = NULL
+MRCA = NULL
+for (i in 1:length(post.burnin.trees)) {
+  MRCA[i] <- getMRCA(post.burnin.trees[[i]], tips)
+  posterior.age[i] <- times_matrix[i, (MRCA[i]-244)]
+}
+posterior.age.Saimiri1 <- posterior.age
+```
+
+```{r}
+tips <- c("NC_023211.1_Saimiri_oerstedii_citrinellus","PD_0365.1", "PD_0363.1", "PD_0367.1", "PD_0375.1", "PD_0366.1")
+posterior.age = NULL
+MRCA = NULL
+for (i in 1:length(post.burnin.trees)) {
+  MRCA[i] <- getMRCA(post.burnin.trees[[i]], tips)
+  posterior.age[i] <- times_matrix[i, (MRCA[i]-244)]
+}
+posterior.age.Saimiri2 <- posterior.age
+```
+
+```{r}
+tips <- c("PD_0311.1", "PD_0310.1", "PD_0078.1")
+posterior.age = NULL
+MRCA = NULL
+for (i in 1:length(post.burnin.trees)) {
+  MRCA[i] <- getMRCA(post.burnin.trees[[i]], tips)
+  posterior.age[i] <- times_matrix[i, (MRCA[i]-244)]
+}
+posterior.age.Cebus <- posterior.age
+```
+
+Combine ages into one dataframe and reshape:
+```{r}
+posterior.ages.Amazon <- data.frame(posterior.age.Ateles, posterior.age.Chiropotes, posterior.age.Cebuella, posterior.age.Leontocebus, posterior.age.Saguinus, posterior.age.Callicebinae, posterior.age.Saimiri1, posterior.age.Saimiri2, posterior.age.Cebus)
+
+posterior.ages.Amazon_melt <- melt(posterior.ages.Amazon)
+```
+
+Ridgeline plot for Amazon:
+```{r}
+p_agesAmazon <- ggplot(posterior.ages.Amazon_melt, aes(x=value, y=variable)) + 
+  geom_density_ridges() + 
+  scale_x_reverse() +
+  theme_classic() +
+  xlab("Time (Myr ago)") +
+  ylab("Density") +
+  scale_y_discrete(labels = c("Ateles", "Chiropotes", "Cebuella", "Leontocebus", "Saguinus", "Cheracebus", "Saimiri1", "Saimiri2", "Cebus")) +
+#  ggtitle("Amazon") +
+  theme(axis.text.y = element_text(face="italic")) +
+  annotate("rect", xmin = 2.4, xmax = 2.5, ymin = 0, ymax = 10, 
+           alpha = 0.3, fill = "red"); p_agesAmazon
+```
+
+#### Madeira:
+```{r}
+tips <- c("PD_0343.1", "PD_0275.1", "PD_0342.1", "PD_0277.1", "PD_0335.1", "PD_0336.1", "PD_0334.1", "PD_0274.1")
+posterior.age = NULL
+MRCA = NULL
+for (i in 1:length(post.burnin.trees)) {
+  MRCA[i] <- getMRCA(post.burnin.trees[[i]], tips)
+  posterior.age[i] <- times_matrix[i, (MRCA[i]-244)]
+}
+posterior.age.Plecturocebus <- posterior.age
+```
+
+Combine ages into one dataframe and reshape:
+```{r}
+posterior.ages.Madeira <- data.frame(posterior.age.Plecturocebus)
+
+posterior.ages.Madeira_melt <- melt(posterior.ages.Madeira)
+```
+
+Plot for Madeira:
+```{r}
+p_agesMadeira <- ggplot(posterior.ages.Madeira_melt, aes(x=value, y=variable)) + 
+  geom_density_ridges() + 
+  scale_x_reverse() +
+  theme_classic() +
+  xlab("Time (Myr ago)") +
+  ylab("Density") +
+  scale_y_discrete(labels = c("Plecturocebus")) +
+#  ggtitle("Madeira") +
+  theme(axis.text.y = element_text(face="italic")); p_agesMadeira
+```
+
+#### Negro
+```{r}
+tips <- c("PD_0129.1", "PD_0003.1", "PD_0022.1", "PD_0131.1", "PD_0019.1", "PD_0128.1", "PD_0018.1")
+posterior.age = NULL
+MRCA = NULL
+for (i in 1:length(post.burnin.trees)) {
+  MRCA[i] <- getMRCA(post.burnin.trees[[i]], tips)
+  posterior.age[i] <- times_matrix[i, (MRCA[i]-244)]
+}
+posterior.age.Cacajao <- posterior.age
+```
+
+```{r}
+tips <- c("PD_0316.1", "PD_0319.1", "PD_0317.1", "PD_0318.1", "PD_0315.1", "PD_0001.1", "PD_0320.1")
+posterior.age = NULL
+MRCA = NULL
+for (i in 1:length(post.burnin.trees)) {
+  MRCA[i] <- getMRCA(post.burnin.trees[[i]], tips)
+  posterior.age[i] <- times_matrix[i, (MRCA[i]-244)]
+}
+posterior.age.Cheracebus <- posterior.age
+```
+
+```{r}
+tips <- c("PD_0007.1", "PD_0079.1", "PD_0311.1", "PD_0310.1", "PD_0078.1", "PD_0013.1")
+posterior.age = NULL
+MRCA = NULL
+for (i in 1:length(post.burnin.trees)) {
+  MRCA[i] <- getMRCA(post.burnin.trees[[i]], tips)
+  posterior.age[i] <- times_matrix[i, (MRCA[i]-244)]
+}
+posterior.age.Cebus_negro <- posterior.age
+```
+
+Combine ages into one dataframe and reshape:
+```{r}
+posterior.ages.Negro <- data.frame(posterior.age.Cacajao, posterior.age.Cheracebus, posterior.age.Cebus_negro)
+
+posterior.ages.Negro_melt <- melt(posterior.ages.Negro)
+```
+
+Plot for Negro:
+```{r}
+p_agesNegro <- ggplot(posterior.ages.Negro_melt, aes(x=value, y=variable)) + 
+  geom_density_ridges() + 
+  scale_x_reverse() +
+  theme_classic() +
+  xlab("Time (Myr ago)") +
+  ylab("Density") +
+  scale_y_discrete(labels = c("Cacajao", "Cheracebus", "Cebus")) +
+#  ggtitle("Negro") +
+  theme(axis.text.y = element_text(face="italic")) +
+  annotate("rect", xmin = 1.9, xmax = 3.6, ymin = 0, ymax = 4,
+           alpha = 0.3, fill = "red"); p_agesNegro
+```
+
+```{r}
+p_nodeAges <- ggpubr::ggarrange(p_agesAmazon, ggpubr::ggarrange(p_agesNegro, p_agesMadeira, nrow = 2, ncol = 1, heights = c(1.8,1.2), labels = c("(B)", "(C)"), align = "v"), ncol = 2, labels = c("(A)", "")); p_nodeAges
+
+ggsave("./Figures/riverSplit_nodeAges.pdf", p_nodeAges, height = 5.5, width = 7)
+```
