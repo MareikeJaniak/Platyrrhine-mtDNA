@@ -176,7 +176,7 @@ PD_0343	93	UFRO.M.544	Plecturocebus	dubius			Pithecia_pithecia	Pithecia_pithecia
 PD_0344	252	TAP351420	Plecturocebus	moloch			Pithecia_pithecia	Pithecia_pithecia.fasta
 PD_0345	249	TAP295_334?	Pithecia	sp			Pithecia_pithecia	Pithecia_pithecia.fasta
 PD_0346	352	JPB165	Saguinus	bicolor			Saguinus_midas	Saguinus_midas.fasta
-PD_0347	325	PUR186	Leontocebus	fuscicolis	weddelli		Saguinus_midas	Saguinus_midas.fasta
+PD_0347	325	PUR186	Leontocebus	fuscicollis	weddelli		Saguinus_midas	Saguinus_midas.fasta
 PD_0348	334	PUR167	Saguinus	labiatus	rufiventer		Saguinus_midas	Saguinus_midas.fasta
 PD_0349	280	TRO671	Saguinus	midas			Saguinus_midas	Saguinus_midas.fasta
 PD_0350	313	JAT39	Saguinus	midas			Saguinus_midas	Saguinus_midas.fasta
@@ -247,4 +247,4 @@ PD_0435	162	JT003	Cacajao	calvus	rubicundus		Pithecia_pithecia	Pithecia_pithecia
 PD_0436	164	JT078	Cacajao	calvus	rubicundus		Pithecia_pithecia	Pithecia_pithecia.fasta
 PD_0437	167	JT088	Cacajao	calvus	rubicundus		Pithecia_pithecia	Pithecia_pithecia.fasta
 PD_0174	Sgeo_Melin	SgeoMelin	Saguinus	geoffroyi			Saguinus_midas	Saguinus_midas.fasta
-PD_0176	Soer_Melin	SoerMelin	Saimiri	oersteddii			Cebus_albifrons	Cebus_albifrons.fasta
+PD_0176	Soer_Melin	SoerMelin	Saimiri	oerstedii			Cebus_albifrons	Cebus_albifrons.fasta
